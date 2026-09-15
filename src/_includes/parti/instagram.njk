@@ -7,7 +7,7 @@
   </div>
   <ul class="ig-strip" aria-label="Ultimi post Instagram">
     {%- for p in instagram | primi(12) %}
-    <li><a href="{{ p.url }}" rel="noopener" aria-label="{{ p.didascalia or 'Post Instagram' }}">{% img "instagram/" + p.copertina, p.didascalia or "", "(min-width: 60em) 16vw, 33vw" %}</a></li>
+    <li><a href="{{ p.url }}" target="_blank" rel="noopener" aria-label="{{ p.didascalia or 'Post Instagram' }}">{% img "instagram/" + p.copertina, p.didascalia or "", "(min-width: 60em) 16vw, 33vw" %}</a></li>
     {%- endfor %}
   </ul>
 </section>
