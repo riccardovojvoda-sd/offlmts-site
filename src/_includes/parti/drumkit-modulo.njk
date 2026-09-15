@@ -1,3 +1,4 @@
+{%- if lingua == "en" %}
 <form class="scarica" method="POST" action="{{ sito.drumkit.modulo }}" id="drumkit">
   <p class="scarica-titolo">Free download</p>
   <p class="scarica-testo">Leave a name (an alias is fine) and an email: the download starts right after.</p>
@@ -7,7 +8,22 @@
   </div>
   <label class="scarica-consenso"><input type="checkbox" name="OPT_IN" value="1" required><span>I agree to receive the drumkit link and, once in a while, news from the studio. I can unsubscribe anytime.</span></label>
   <input type="text" name="email_address_check" value="" class="scarica-trappola" tabindex="-1" autocomplete="off" aria-hidden="true">
-  <input type="hidden" name="locale" value="it">
+  <input type="hidden" name="locale" value="en">
   <input type="hidden" name="html_type" value="simple">
   <button type="submit" class="bottone">Send me the drumkit</button>
 </form>
+{%- else %}
+<form class="scarica" method="POST" action="{{ sito.drumkit.modulo }}" id="drumkit">
+  <p class="scarica-titolo">Download gratuito</p>
+  <p class="scarica-testo">Lascia un nome (va bene anche un alias) e una mail: il download parte subito dopo.</p>
+  <div class="scarica-campi">
+    <label><span>Nome o alias</span><input type="text" name="NOME" maxlength="200" required autocomplete="nickname" placeholder="Il tuo nome o nome d'arte"></label>
+    <label><span>Email</span><input type="email" name="EMAIL" required autocomplete="email" placeholder="tu@esempio.com"></label>
+  </div>
+  <label class="scarica-consenso"><input type="checkbox" name="OPT_IN" value="1" required><span>Acconsento a ricevere il link del drumkit e, ogni tanto, novità dallo studio. Posso cancellarmi quando voglio.</span></label>
+  <input type="text" name="email_address_check" value="" class="scarica-trappola" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <input type="hidden" name="locale" value="it">
+  <input type="hidden" name="html_type" value="simple">
+  <button type="submit" class="bottone">Mandami il drumkit</button>
+</form>
+{%- endif %}

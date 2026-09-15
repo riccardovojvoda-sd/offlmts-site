@@ -131,6 +131,7 @@ section{padding-block:clamp(2.5rem,6vw,4.5rem)}
 .post-corpo{max-width:46rem;font-size:1.05rem}
 .post-corpo h2,.post-corpo h3,.post-corpo h4{margin-top:1.8em;color:var(--oro)}
 .post-corpo a{color:var(--verde-chiaro)}
+.post-lingua{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;margin:0 0 1rem}
 .post-corpo a:hover{color:var(--testo)}
 .post-figura{margin:1.5rem 0}
 .post-figura img{border-radius:4px;border:1px solid var(--linea)}
