@@ -6,7 +6,8 @@ Stessa ricetta di `sounddesignrv-site`, una lingua sola (italiano).
 ## Comandi
 
 - `npm install` una volta.
-- `npm run dev`: anteprima su http://localhost:8091/ con ricarica automatica.
+- `npm run dev`: anteprima su http://localhost:8091/ con ricarica automatica. Dal telefono sulla stessa Wi-Fi: http://<ip-del-mac>:8091/ (`ipconfig getifaddr en0` per l'ip).
+- `npm run anteprima`: come `build` ma senza `upgrade-insecure-requests` nella CSP, per servire `_site/` in http dal telefono (con `build` normale dal telefono immagini e font non caricano).
 - `npm run build`: genera `_site/` (HTML minificato, immagini responsive in avif/webp/jpeg).
 
 ## Struttura

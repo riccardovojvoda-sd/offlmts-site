@@ -89,6 +89,10 @@ module.exports = function (eleventyConfig) {
     });
   });
 
+  // Anteprima locale (npm run dev, o ANTEPRIMA=1 npm run build): la CSP non forza https, altrimenti
+  // dal telefono su http://<ip-del-mac>:8091 immagini e font vengono chiesti in https e falliscono.
+  eleventyConfig.addGlobalData("anteprima", () => process.env.ELEVENTY_RUN_MODE === "serve" || process.env.ANTEPRIMA === "1");
+
   eleventyConfig.addTransform("minifica", async function (contenuto) {
     if (process.env.ELEVENTY_RUN_MODE !== "build" || process.env.NO_MINIFY) return contenuto;
     if (!(this.page.outputPath || "").endsWith(".html")) return contenuto;

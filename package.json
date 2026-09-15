@@ -5,6 +5,7 @@
   "description": "Sito offlmts.com, statico, generato con Eleventy",
   "scripts": {
     "build": "eleventy",
+    "anteprima": "ANTEPRIMA=1 eleventy",
     "dev": "eleventy --serve --port 8091 --incremental",
     "clean": "rm -rf _site"
   },
