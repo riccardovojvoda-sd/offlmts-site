@@ -91,6 +91,15 @@ section{padding-block:clamp(2.5rem,6vw,4.5rem)}
 .eroe h1{max-width:14ch;color:#fff;font-size:clamp(2.1rem,6.5vw,4.2rem)}
 .eroe-generi{font-family:var(--mono);font-size:.78rem;letter-spacing:.18em;color:rgba(255,255,255,.85);margin:0}
 .eroe .bottoni{margin-top:1.4rem}
+/* Mobile: la foto della regia e' larga (2,2:1) e col ritaglio "cover" su uno schermo stretto restano solo i monitor.
+   Sotto i 48em la foto diventa una fascia in alto con la sua altezza (si vedono entrambi i monitor grandi) e il testo va sotto, sul fondo scuro. */
+@media (max-width:48em){
+  .eroe{min-height:0;flex-direction:column;align-items:stretch;--eroe-foto-h:clamp(13rem,32vh,17rem)}
+  .eroe picture{position:static;width:100%;height:var(--eroe-foto-h)}
+  .eroe picture img,.eroe>img{position:static;height:var(--eroe-foto-h);object-position:center 45%}
+  .eroe::after{inset:auto 0 auto 0;top:0;height:var(--eroe-foto-h);background:linear-gradient(180deg,rgba(11,10,9,0) 50%,var(--fondo) 100%)}
+  .eroe-testo{margin-top:-2.5rem;padding-block:0 2rem;position:relative}
+}
 
 /* servizi in griglia */
 .servizi-griglia{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem;list-style:none;padding:0;margin:0 0 1.6rem}
@@ -199,7 +208,7 @@ section{padding-block:clamp(2.5rem,6vw,4.5rem)}
 .contatti-pagina .canale:hover{background:var(--sup2);color:var(--oro-chiaro)}
 .contatti-pagina .canale-nome{flex:0 0 6.5rem}
 .contatti-pagina .canale-valore{font-size:1.05rem}
-@media (max-width:30em){.contatti-pagina .canale{flex-direction:column;gap:.2rem}}
+@media (max-width:30em){.contatti-pagina .canale{flex-direction:column;gap:.2rem}.contatti-pagina .canale-nome{flex-basis:auto}} /* in colonna il flex-basis di 6.5rem diventerebbe un'altezza */
 
 /* modulo drumkit */
 .scarica{margin:2rem 0;padding:1.5rem;background:var(--sup2);border:1px solid var(--linea);border-left:3px solid var(--oro);border-radius:4px;display:flex;flex-direction:column;gap:1rem}
