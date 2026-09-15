@@ -1,0 +1,16 @@
+<section class="ascolta tema-sup" aria-labelledby="ascolta-titolo">
+  <div class="contenitore ascolta-griglia">
+    <div>
+      <p class="occhiello">Ascolta</p>
+      <h2 id="ascolta-titolo">Fatti convincere dal suono</h2>
+      <p>Una playlist con i pezzi usciti dallo studio. Premi play qui, o <a href="{{ sito.social.spotify }}" rel="noopener">aprila su Spotify</a>.</p>
+    </div>
+    <div class="ascolta-player" data-embed="{{ sito.social.spotifyEmbed }}">
+      <button type="button" class="ascolta-avvia" id="ascolta-avvia">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        <span>Carica la playlist Spotify</span>
+        <small>Il player si carica solo se lo chiedi tu: niente cookie prima.</small>
+      </button>
+    </div>
+  </div>
+</section>

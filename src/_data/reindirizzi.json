@@ -1,0 +1,6 @@
+[
+  { "da": "/about/", "a": "/chi-sono/" },
+  { "da": "/tariffe/", "a": "/servizi/" },
+  { "da": "/cart/", "a": "/" },
+  { "da": "/contact/", "a": "/contatti/" }
+]

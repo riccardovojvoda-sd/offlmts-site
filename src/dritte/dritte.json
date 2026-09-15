@@ -1,0 +1,5 @@
+{
+  "layout": "layouts/post.njk",
+  "tags": ["dritte"],
+  "permalink": "/dritte/{{ page.fileSlug }}/"
+}

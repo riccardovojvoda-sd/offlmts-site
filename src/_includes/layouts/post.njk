@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+og_type: article
+---
+{%- set immagine_og_url = "/assets/img/dritte/" + copertina if copertina else "" %}
+<article class="post">
+  <header class="intestazione">
+    <div class="contenitore">
+      <p class="occhiello"><a href="/dritte/">Dritte</a> · <time datetime="{{ page.date | dataIso }}">{{ page.date | dataIt }}</time>{% if lingua == "en" %} · in inglese{% endif %}</p>
+      <h1>{{ titolo }}</h1>
+    </div>
+  </header>
+  <div class="contenitore post-corpo"{% if lingua == "en" %} lang="en"{% endif %}>
+    {{ content | safe }}
+  </div>
+  {%- if tags.length > 1 %}
+  <div class="contenitore post-tag">
+    <p class="occhiello">Argomenti</p>
+    <ul class="etichette">
+      {%- for t in tags %}{% if t != "dritte" %}<li>{{ t }}</li>{% endif %}{% endfor %}
+    </ul>
+  </div>
+  {%- endif %}
+  <div class="contenitore post-fine">
+    <a class="bottone vuoto" href="/dritte/">Tutte le Dritte</a>
+  </div>
+</article>
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": titolo,
+  "description": descrizione,
+  "datePublished": page.date | dataIso,
+  "inLanguage": lingua or "it",
+  "image": (sito.url + "/assets/img/dritte/" + copertina) if copertina else undefined,
+  "author": { "@type": "Person", "name": sito.titolare, "alternateName": sito.alias },
+  "publisher": { "@type": "Organization", "name": sito.nome, "logo": { "@type": "ImageObject", "url": sito.url + "/icon-512.png" } },
+  "mainEntityOfPage": sito.url + page.url
+} | json | safe }}</script>

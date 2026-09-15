@@ -1,0 +1,50 @@
+name: Build e deploy offlmts.com
+
+# Costruisce il sito con Eleventy e lo pubblica su GitHub Pages.
+# Parte a ogni push su main, o a mano. Il dominio custom viene dal file CNAME in _site.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Controllo pre-pubblicazione
+        run: |
+          ! grep -rl "squarespace" _site --include=*.html
+          ! grep -rlE "TODO|LOREM|lorem ipsum" _site --include=*.html
+          test -f _site/index.html && test -f _site/404.html && test -f _site/CNAME
+          test -f _site/servizi/index.html && test -f _site/prepara-il-materiale/index.html && test -f _site/dritte/index.html
+          test -f _site/sitemap.xml && test -f _site/llms.txt
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

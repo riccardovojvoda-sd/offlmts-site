@@ -1,0 +1,10 @@
+---
+pagination:
+  data: reindirizzi
+  size: 1
+  alias: r
+permalink: "{{ r.da }}index.html"
+eleventyExcludeFromCollections: true
+escludiDaSitemap: true
+---
+<!doctype html><html lang="it"><head><meta charset="utf-8"><title>Pagina spostata</title><meta name="robots" content="noindex"><link rel="canonical" href="{{ sito.url }}{{ r.a }}"><meta http-equiv="refresh" content="0; url={{ r.a }}"><script>location.replace("{{ r.a }}")</script></head><body><p>Questa pagina si è spostata: <a href="{{ r.a }}">{{ sito.url }}{{ r.a }}</a></p></body></html>

@@ -1,0 +1,14 @@
+{%- if instagram.length %}
+<section class="dallo-studio" aria-labelledby="dallo-studio-titolo">
+  <div class="contenitore">
+    <p class="occhiello">Instagram</p>
+    <h2 id="dallo-studio-titolo">Dallo studio</h2>
+    <p>Sessioni, dietro le quinte, pezzi in uscita. Su Instagram, <a href="{{ sito.social.instagram }}" rel="me noopener">{{ sito.social.instagramNome }}</a>.</p>
+  </div>
+  <ul class="ig-strip" aria-label="Ultimi post Instagram">
+    {%- for p in instagram | primi(12) %}
+    <li><a href="{{ p.url }}" rel="noopener" aria-label="{{ p.didascalia or 'Post Instagram' }}">{% img "instagram/" + p.copertina, p.didascalia or "", "(min-width: 60em) 16vw, 33vw" %}</a></li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}

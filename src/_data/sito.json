@@ -1,0 +1,29 @@
+{
+  "nome": "OFFLMTS Recording Studio",
+  "nomeBreve": "OFFLMTS",
+  "url": "https://www.offlmts.com",
+  "titolare": "Riccardo Vojvoda",
+  "alias": "Trich",
+  "descrizione": "Studio di registrazione a Porcia (Pordenone): mix, master e registrazione vocale per artisti Urban, Hip Hop, Pop ed EDM. In studio o da remoto, ovunque tu sia in Italia.",
+  "email": "offlmtsrecordingstudio@gmail.com",
+  "mailOggetto": "Vorrei venire in studio a registrare il mio singolo!",
+  "mailCorpo": "Ciao!\nScrivi qui il tuo messaggio: raccontami chi sei, che esperienza hai con lo studio di registrazione.\nParlami del tuo progetto, dimmi cosa desideri ottenere dalla tua esperienza in studio!\nLeggerò attentamente e ti risponderò al più presto, solitamente entro 24/48 ore.\nGrazie!\nRiccardo",
+  "whatsapp": "393495112571",
+  "telegram": "OFFLMTS",
+  "indirizzo": { "via": "Via Verona 4", "cap": "33080", "comune": "Porcia", "provincia": "PN", "provinciaEstesa": "Pordenone" },
+  "mappa": "https://www.google.com/maps/search/?api=1&query=Via+Verona+4%2C+33080+Porcia+PN",
+  "social": {
+    "instagram": "https://www.instagram.com/offlmts.recording.studio/",
+    "instagramNome": "@offlmts.recording.studio",
+    "youtube": "https://www.youtube.com/@offlmtsbaby",
+    "youtubeNome": "@offlmtsbaby",
+    "spotify": "https://open.spotify.com/playlist/1vDbHsQyQVGSDKmPEgQ33s",
+    "spotifyEmbed": "https://open.spotify.com/embed/playlist/1vDbHsQyQVGSDKmPEgQ33s?theme=0",
+    "sounddesignrv": "https://www.sounddesignrv.com/"
+  },
+  "trasferimento": {
+    "smash": "https://fromsmash.com/it",
+    "wetransfer": "https://wetransfer.com",
+    "swisstransfer": "https://www.swisstransfer.com/it"
+  }
+}

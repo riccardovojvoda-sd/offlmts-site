@@ -1,0 +1,23 @@
+<footer class="pie">
+  <div class="contenitore pie-griglia">
+    <div class="pie-blocco">
+      <strong>{{ sito.nome }}</strong>
+      <span>{{ sito.indirizzo.via }}, {{ sito.indirizzo.cap }} {{ sito.indirizzo.comune }} ({{ sito.indirizzo.provinciaEstesa }})</span>
+      <span><a href="mailto:{{ sito.email }}">{{ sito.email }}</a></span>
+    </div>
+    <nav class="pie-blocco" aria-label="Pagine">
+      <a href="/servizi/">Servizi</a>
+      <a href="/prepara-il-materiale/">Prepara il materiale</a>
+      <a href="/dritte/">Dritte</a>
+      <a href="/chi-sono/">Chi sono</a>
+      <a href="/contatti/">Contatti</a>
+    </nav>
+    <nav class="pie-blocco" aria-label="Profili">
+      <a href="{{ sito.social.instagram }}" rel="me noopener">Instagram</a>
+      <a href="{{ sito.social.youtube }}" rel="me noopener">YouTube</a>
+      <a href="{{ sito.social.spotify }}" rel="noopener">Playlist Spotify</a>
+      <a href="{{ sito.social.sounddesignrv }}" rel="me noopener">Sound Design RV</a>
+    </nav>
+  </div>
+  <p class="pie-copy contenitore">© {{ "" | anno }} {{ sito.nome }} · {{ sito.titolare }}</p>
+</footer>

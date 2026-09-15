@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; frame-src https://open.spotify.com; connect-src 'self'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
+{%- set titoloPagina = titolo_seo or (titolo + " | " + sito.nome if titolo else sito.nome) %}
+{%- set descPagina = descrizione_seo or descrizione or sito.descrizione %}
+{%- set urlPagina = sito.url + page.url %}
+<title>{{ titoloPagina }}</title>
+<meta name="description" content="{{ descPagina }}">
+{%- if noindex %}<meta name="robots" content="noindex">{% endif %}
+<link rel="canonical" href="{{ urlPagina }}">
+<meta property="og:type" content="{{ og_type or 'website' }}">
+<meta property="og:site_name" content="{{ sito.nome }}">
+<meta property="og:title" content="{{ titoloPagina }}">
+<meta property="og:description" content="{{ descPagina }}">
+<meta property="og:url" content="{{ urlPagina }}">
+<meta property="og:locale" content="it_IT">
+{%- if immagine_og_url %}
+<meta property="og:image" content="{{ sito.url }}{{ immagine_og_url }}">
+{%- else %}
+<meta property="og:image" content="{{ sito.url }}{% imgUrl immagine_og or "studio/regia-hero.jpg", 1200 %}">
+{%- endif %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B0A09">
+<link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/favicon.png" type="image/png" sizes="32x32"><link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/font/space-mono-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/font/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>{% include "css/sito.css" %}</style>
+{% block head %}{% endblock %}
+<script type="application/ld+json">{{ {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": sito.url + "/#offlmts",
+  "name": sito.nome,
+  "alternateName": ["OFFLMTS", "OFFLMTS Studio", "OFFLMTS Recording Studio Pordenone"],
+  "description": sito.descrizione,
+  "url": sito.url,
+  "image": sito.url + "/icon-512.png",
+  "logo": sito.url + "/icon-512.png",
+  "email": sito.email,
+  "telephone": "+" + sito.whatsapp,
+  "address": { "@type": "PostalAddress", "streetAddress": sito.indirizzo.via, "postalCode": sito.indirizzo.cap, "addressLocality": sito.indirizzo.comune, "addressRegion": sito.indirizzo.provincia, "addressCountry": "IT" },
+  "areaServed": ["Pordenone", "Friuli Venezia Giulia", "Italia"],
+  "founder": { "@type": "Person", "name": sito.titolare, "alternateName": sito.alias, "jobTitle": "Mixing engineer, vocal producer", "sameAs": [sito.social.instagram, sito.social.youtube, sito.social.sounddesignrv] },
+  "knowsAbout": ["mix", "mastering", "registrazione vocale", "vocal production", "hip hop", "trap", "urban", "pop", "EDM", "tuning", "editing vocale", "remaster", "rebalance"],
+  "sameAs": [sito.social.instagram, sito.social.youtube, sito.social.spotify]
+} | json | safe }}</script>
+</head>
+<body class="{{ classeBody or '' }}">
+<a class="salta" href="#contenuto">Vai al contenuto</a>
+{% include "parti/testata.njk" %}
+<main id="contenuto">
+{{ content | safe }}
+</main>
+{% if not senzaContatto %}{% include "parti/contatto.njk" %}{% endif %}
+{% include "parti/pie.njk" %}
+<a class="in-alto" href="#" aria-label="Torna su" title="Torna su" hidden><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M6 14l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<script src="/assets/js/in-alto.js" defer></script>
+<script src="/assets/js/ascolta.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+---
+layout: layouts/base.njk
+titolo_seo: OFFLMTS Recording Studio | Mix, Master e Registrazione Vocale Urban, Hip Hop, Pop, EDM | Pordenone
+descrizione: Studio di registrazione a Pordenone specializzato in mix, master e registrazione vocale per Urban, Hip Hop, Pop ed EDM. Oltre 20 anni di esperienza, in studio o da remoto. Scrivimi!
+classeBody: home
+---
+<section class="eroe" aria-labelledby="eroe-titolo">
+  {% img "studio/regia-hero.jpg", "La regia di OFFLMTS Recording Studio: monitor, schermi e la cabina di registrazione", "100vw", "eager" %}
+  <div class="contenitore eroe-testo">
+    <p class="occhiello">Rec | Mix | Master</p>
+    <h1 id="eroe-titolo">Eleva il sound della tua musica</h1>
+    <p class="eroe-generi">URBAN | POP | EDM</p>
+    <div class="bottoni">
+      <a class="bottone" href="/contatti/">Scrivimi</a>
+      <a class="bottone vuoto" href="/prepara-il-materiale/">Prepara il materiale</a>
+    </div>
+  </div>
+</section>
+
+<section class="servizi" aria-labelledby="servizi-titolo">
+  <div class="contenitore">
+    <p class="occhiello">Tutti i servizi</p>
+    <h2 id="servizi-titolo">Voci e suoni al top</h2>
+    <ul class="servizi-griglia">
+      <li class="carta"><h3>Mix</h3><p>Eleva il suono delle tue produzioni.</p><a href="/servizi/#mix">Scopri di più</a></li>
+      <li class="carta"><h3>Master</h3><p>Finalizza i tuoi brani e distribuiscili.</p><a href="/servizi/#master">Scopri di più</a></li>
+      <li class="carta"><h3>Remaster / Rebalance</h3><p>Rinfresca i tuoi vecchi progetti.</p><a href="/servizi/#remaster">Scopri di più</a></li>
+      <li class="carta"><h3>Registrazione vocale</h3><p>Cattura la tua miglior performance vocale.</p><a href="/servizi/#registrazione">Scopri di più</a></li>
+    </ul>
+    <a class="bottone vuoto" href="/servizi/">Tutti i servizi</a>
+  </div>
+</section>
+
+<section class="chi-breve-sez tema-sup" aria-labelledby="chi-titolo">
+  <div class="contenitore chi-breve">
+    <div>
+      <p class="occhiello">Chi sono</p>
+      <h2 id="chi-titolo">Ciao, sono Trich</h2>
+      <p>Sei in OFFLMTS Recording Studio, a Porcia, Pordenone. Facciamo il salto di qualità assieme!</p>
+      <p>In studio ci concentriamo sulla performance: cerchiamo la tua take migliore e il brivido. Voglio farti spaccare.</p>
+      <p>Non importa come arrivi: esci con un mix da classifica e una produzione vocale di alto livello.</p>
+      <p>Lavoro con artisti Urban, Hip Hop, Pop ed EDM da oltre 20 anni. Anche da remoto, ovunque tu sia in Italia. Se cerchi un tocco personale, ci sono.</p>
+      <p>Uscirai dallo studio col pezzo che volevi e in fotta per il prossimo.</p>
+      <a class="bottone vuoto" href="/chi-sono/">La mia storia</a>
+    </div>
+    <div class="chi-breve-foto">
+      {% img "trich/trich-1.jpg", "Riccardo Vojvoda, in arte Trich, in studio", "(min-width: 48em) 35vw, 90vw" %}
+    </div>
+  </div>
+</section>
+
+{% include "parti/ascolta.njk" %}
+
+{% include "parti/instagram.njk" %}
+
+<section class="dritte tema-sup" aria-labelledby="dritte-titolo">
+  <div class="contenitore">
+    <p class="occhiello">Dritte</p>
+    <h2 id="dritte-titolo">Consigli dallo studio</h2>
+    {%- set lista = collections.dritte | primi(3) %}
+    {% include "parti/dritte-lista.njk" %}
+    <p style="margin-top:1.5rem"><a class="bottone vuoto" href="/dritte/">Tutte le Dritte</a></p>
+  </div>
+</section>

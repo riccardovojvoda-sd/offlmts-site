@@ -1,0 +1,16 @@
+---
+layout: layouts/pagina.njk
+permalink: /dritte/
+titolo: Dritte
+titolo_seo: Dritte | Consigli per produrre, mixare e pubblicare la tua musica | OFFLMTS
+descrizione: Guide e consigli dallo studio, per chi produce, registra e pubblica musica da solo. Esportare le tracce, DistroKid, playlist Spotify, attrezzatura per l'home studio, drumkit gratis.
+occhiello: Consigli dallo studio
+sottotitolo: Quello che spiego ai ragazzi che passano in studio, scritto una volta per tutti.
+classeBody: dritte-pagina
+---
+<section style="padding-top:0">
+  <div class="contenitore">
+    {%- set lista = collections.dritte %}
+    {% include "parti/dritte-lista.njk" %}
+  </div>
+</section>
