@@ -56,7 +56,7 @@ code{font-family:var(--mono);font-size:.88em;background:var(--sup2);padding:.1em
 
 /* testata */
 .testata{display:flex;align-items:center;justify-content:space-between;gap:1rem 2rem;flex-wrap:wrap;padding:1rem var(--gutter);border-bottom:1px solid var(--linea);background:var(--fondo);position:sticky;top:0;z-index:20}
-.marchio{display:flex;flex-direction:column;gap:.15rem;text-decoration:none;color:var(--testo)}
+.marchio{display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;text-decoration:none;color:var(--testo)}
 .marchio-logo{width:auto;height:26px}
 .marchio-sotto{font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muto)}
 .menu{display:flex;gap:1.4rem;align-items:center;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;max-width:100%;padding-bottom:2px}
@@ -181,7 +181,16 @@ section{padding-block:clamp(2.5rem,6vw,4.5rem)}
 .canale:hover{border-color:var(--oro);color:var(--testo)}
 .canale-nome{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--oro)}
 .canale-valore{font-weight:500;overflow-wrap:anywhere}
-.contatti-pagina .canali{grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.contatti-griglia{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:stretch}
+@media (max-width:60em){.contatti-griglia{grid-template-columns:1fr}}
+.contatti-foto img{width:100%;height:100%;object-fit:cover;object-position:35% center;border-radius:4px;border:1px solid var(--linea);min-height:16rem}
+.contatti-pagina .canali{grid-template-columns:1fr;align-self:center;gap:0;border:1px solid var(--linea);border-radius:4px;overflow:hidden}
+.contatti-pagina .canale{flex-direction:row;align-items:baseline;gap:1.5rem;border:0;border-radius:0;border-bottom:1px solid var(--linea);background:var(--sup);padding:1.1rem 1.25rem}
+.contatti-pagina li:last-child .canale{border-bottom:0}
+.contatti-pagina .canale:hover{background:var(--sup2);color:var(--oro-chiaro)}
+.contatti-pagina .canale-nome{flex:0 0 6.5rem}
+.contatti-pagina .canale-valore{font-size:1.05rem}
+@media (max-width:30em){.contatti-pagina .canale{flex-direction:column;gap:.2rem}}
 
 /* pie' */
 .pie{border-top:1px solid var(--linea);padding-block:2.5rem 1.5rem;color:var(--muto);font-size:.9rem}

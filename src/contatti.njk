@@ -16,13 +16,14 @@ senzaContatto: true
   </div>
 </section>
 <section style="padding-top:0">
-  <div class="contenitore">
+  <div class="contenitore contatti-griglia">
     <ul class="canali">
       <li><a class="canale" href="https://wa.me/{{ sito.whatsapp }}" rel="noopener"><span class="canale-nome">WhatsApp</span><span class="canale-valore">Riccardo</span></a></li>
       <li><a class="canale" href="https://t.me/{{ sito.telegram }}" rel="noopener"><span class="canale-nome">Telegram</span><span class="canale-valore">@{{ sito.telegram }}</span></a></li>
       <li><a class="canale" href="{{ mailHref }}"><span class="canale-nome">Mail</span><span class="canale-valore">{{ sito.email }}</span></a></li>
       <li><a class="canale" href="{{ sito.mappa }}" rel="noopener"><span class="canale-nome">Studio</span><span class="canale-valore">{{ sito.indirizzo.via }}, {{ sito.indirizzo.cap }} {{ sito.indirizzo.comune }} ({{ sito.indirizzo.provinciaEstesa }})</span></a></li>
     </ul>
+    <div class="contatti-foto">{% img "studio/scrivania-oro.jpg", "Riccardo alla scrivania della regia di OFFLMTS Recording Studio", "(min-width: 60em) 45vw, 100vw", "eager" %}</div>
   </div>
 </section>
 <section class="tema-sup" aria-labelledby="materiale-titolo">
@@ -31,10 +32,5 @@ senzaContatto: true
     <h2 id="materiale-titolo">Puoi già inviarmi il materiale</h2>
     <p><a href="{{ sito.trasferimento.smash }}" rel="noopener">Smash</a>, <a href="{{ sito.trasferimento.wetransfer }}" rel="noopener">WeTransfer</a> o <a href="{{ sito.trasferimento.swisstransfer }}" rel="noopener">SwissTransfer</a> alla mail qui sopra, oppure un link Drive o Dropbox nel messaggio. Niente file via mail: piuttosto su Telegram.</p>
     <p>Prima di esportare, guarda <a href="/prepara-il-materiale/">Prepara il materiale</a>.</p>
-  </div>
-</section>
-<section>
-  <div class="contenitore">
-    {% img "studio/scrivania.jpg", "La scrivania della regia di OFFLMTS Recording Studio", "100vw", "lazy", "foto-bordo" %}
   </div>
 </section>

@@ -76,6 +76,20 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("json", (v) => JSON.stringify(v));
   eleventyConfig.addFilter("primi", (arr, n) => (arr || []).slice(0, n));
 
+  // Tutti i link verso altri siti si aprono in una nuova scheda.
+  eleventyConfig.addTransform("link-esterni", function (contenuto) {
+    if (!(this.page.outputPath || "").endsWith(".html")) return contenuto;
+    return contenuto.replace(/<a\s[^>]*href="https?:\/\/[^"]*"[^>]*>/g, (tag) => {
+      if (/href="https?:\/\/(www\.)?offlmts\.com/.test(tag) || /\starget=/.test(tag)) return tag;
+      if (/\srel="/.test(tag)) {
+        tag = tag.replace(/\srel="([^"]*)"/, (m, r) => ` rel="${/\bnoopener\b/.test(r) ? r : r + " noopener"}"`);
+      } else {
+        tag = tag.replace(/^<a\s/, '<a rel="noopener" ');
+      }
+      return tag.replace(/^<a\s/, '<a target="_blank" ');
+    });
+  });
+
   eleventyConfig.addTransform("minifica", async function (contenuto) {
     if (process.env.ELEVENTY_RUN_MODE !== "build" || process.env.NO_MINIFY) return contenuto;
     if (!(this.page.outputPath || "").endsWith(".html")) return contenuto;
