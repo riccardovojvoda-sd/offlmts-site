@@ -1,0 +1,18 @@
+---
+layout: layouts/pagina.njk
+permalink: /en/tips/
+lingua: en
+titolo: Tips
+titolo_seo: Tips | Producing, mixing and releasing your music | OFFLMTS
+descrizione: Guides and tips from the studio, for people who produce, record and release music on their own. Exporting stems, sample clearance, free drumkit.
+occhiello: Tips from the studio
+sottotitolo: What I explain to the artists who come through the studio, written down once for everyone.
+classeBody: dritte-pagina
+---
+<section style="padding-top:0">
+  <div class="contenitore">
+    {%- set lista = collections.tips %}
+    {% include "parti/dritte-lista.njk" %}
+    <p class="post-lingua" style="margin-top:2rem"><a href="/dritte/" hreflang="it">Versione italiana</a></p>
+  </div>
+</section>

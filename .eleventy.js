@@ -21,6 +21,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("dritte", (api) =>
     api.getFilteredByTag("dritte").sort((a, b) => b.date - a.date)
   );
+  // Versioni inglesi degli articoli: /en/tips/<slug>/, elenco in /en/tips/. Coppia IT/EN dichiarata nel front matter (`coppia`) e legata con hreflang.
+  eleventyConfig.addCollection("tips", (api) =>
+    api.getFilteredByTag("tips").sort((a, b) => b.date - a.date)
+  );
 
   // Shortcode immagine responsive: {% img "studio/regia-hero.jpg", "alt", "(min-width: 60em) 50vw, 100vw", "lazy" %}
   eleventyConfig.addAsyncShortcode("img", async function (src, alt, sizes = "100vw", loading = "lazy", classe = "") {
@@ -71,6 +75,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("dataIt", (d) => {
     const x = d instanceof Date ? d : new Date(d);
     return `${x.getUTCDate()} ${MESI[x.getUTCMonth()]} ${x.getUTCFullYear()}`;
+  });
+  eleventyConfig.addFilter("dataEn", (d) => {
+    const x = d instanceof Date ? d : new Date(d);
+    return x.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
   });
   eleventyConfig.addFilter("json", (v) => JSON.stringify(v));
   eleventyConfig.addFilter("primi", (arr, n) => (arr || []).slice(0, n));

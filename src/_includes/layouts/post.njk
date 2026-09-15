@@ -6,23 +6,28 @@ og_type: article
 <article class="post">
   <header class="intestazione">
     <div class="contenitore">
-      <p class="occhiello"><a href="/dritte/">Dritte</a> · <time datetime="{{ page.date | dataIso }}">{{ page.date | dataIt }}</time>{% if lingua == "en" %} · in inglese{% endif %}</p>
+      {%- if lingua == "en" %}
+      <p class="occhiello"><a href="/en/tips/">Tips</a> · <time datetime="{{ page.date | dataIso }}">{{ page.date | dataEn }}</time></p>
+      {%- else %}
+      <p class="occhiello"><a href="/dritte/">Dritte</a> · <time datetime="{{ page.date | dataIso }}">{{ page.date | dataIt }}</time></p>
+      {%- endif %}
       <h1>{{ titolo }}</h1>
+      {%- if coppia %}<p class="post-lingua"><a href="{{ coppia }}" hreflang="{{ "it" if lingua == "en" else "en" }}">{{ "Versione italiana" if lingua == "en" else "English version" }}</a></p>{% endif %}
     </div>
   </header>
-  <div class="contenitore post-corpo"{% if lingua == "en" %} lang="en"{% endif %}>
+  <div class="contenitore post-corpo">
     {{ content | safe }}
   </div>
   {%- if tags.length > 1 %}
   <div class="contenitore post-tag">
-    <p class="occhiello">Argomenti</p>
+    <p class="occhiello">{{ "Topics" if lingua == "en" else "Argomenti" }}</p>
     <ul class="etichette">
-      {%- for t in tags %}{% if t != "dritte" %}<li>{{ t }}</li>{% endif %}{% endfor %}
+      {%- for t in tags %}{% if t != "dritte" and t != "tips" %}<li>{{ t }}</li>{% endif %}{% endfor %}
     </ul>
   </div>
   {%- endif %}
   <div class="contenitore post-fine">
-    <a class="bottone vuoto" href="/dritte/">Tutte le Dritte</a>
+    {%- if lingua == "en" %}<a class="bottone vuoto" href="/en/tips/">All tips</a>{% else %}<a class="bottone vuoto" href="/dritte/">Tutte le Dritte</a>{% endif %}
   </div>
 </article>
 <script type="application/ld+json">{{ {

@@ -4,7 +4,7 @@
     <a href="{{ p.url }}" class="dritta-link">
       {%- if p.data.copertina %}<span class="dritta-cop"><img src="/assets/img/dritte/{{ p.data.copertina }}" alt="" loading="lazy" decoding="async"></span>{% endif %}
       <span class="dritta-testo">
-        <time datetime="{{ p.date | dataIso }}">{{ p.date | dataIt }}</time>
+        <time datetime="{{ p.date | dataIso }}">{{ p.date | dataEn if p.data.lingua == "en" else p.date | dataIt }}</time>
         <strong>{{ p.data.titolo }}</strong>
         <span>{{ p.data.descrizione | truncate(150) }}</span>
       </span>

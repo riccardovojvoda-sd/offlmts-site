@@ -33,3 +33,9 @@ Il player Spotify si carica solo al clic (niente cookie di terze parti prima).
 - Niente prezzi sul sito (scelta di Riccardo, 15/09/2026). La vecchia pagina `/tariffe` rimanda a `/servizi/`.
 - Il Drumkit Vol.1 e' gratis: oggi punta ancora al link Mediafire del vecchio post; da spostare nel repo (`src/assets/file/`) quando Riccardo passa lo ZIP.
 - Nessun em dash / en dash nei testi (regola globale).
+
+## Articoli in due lingue
+
+- Italiano in `src/dritte/<slug>.html` (URL `/dritte/<slug>/`, elenco `/dritte/`), inglese in `src/en/tips/<slug>.html` (URL `/en/tips/<slug>/`, elenco `/en/tips/`).
+- Le due versioni si legano con `coppia: <url dell'altra>` nel front matter di entrambe: il layout mette i tag `hreflang` (it, en, x-default sull'italiano), il link "English version" / "Versione italiana" e `lang` giusto sull'html.
+- Prima il testo italiano approvato da Riccardo, poi la traduzione. Il menu e il pie' restano in italiano anche sulle pagine inglesi.

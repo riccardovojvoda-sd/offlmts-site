@@ -1,6 +1,26 @@
 [
-  { "da": "/about/", "a": "/chi-sono/" },
-  { "da": "/tariffe/", "a": "/servizi/" },
-  { "da": "/cart/", "a": "/" },
-  { "da": "/contact/", "a": "/contatti/" }
+  {
+    "da": "/about/",
+    "a": "/chi-sono/"
+  },
+  {
+    "da": "/tariffe/",
+    "a": "/servizi/"
+  },
+  {
+    "da": "/cart/",
+    "a": "/"
+  },
+  {
+    "da": "/contact/",
+    "a": "/contatti/"
+  },
+  {
+    "da": "/dritte/offlmts-drumkit-vol1/",
+    "a": "/en/tips/offlmts-drumkit-vol1/"
+  },
+  {
+    "da": "/dritte/how-to-legally-clear-a-sample-a-guide-to-sample-clearance/",
+    "a": "/en/tips/how-to-clear-a-sample/"
+  }
 ]

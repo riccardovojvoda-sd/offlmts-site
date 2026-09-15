@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="it">
+<html lang="{{ lingua or "it" }}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -11,12 +11,18 @@
 <meta name="description" content="{{ descPagina }}">
 {%- if noindex %}<meta name="robots" content="noindex">{% endif %}
 <link rel="canonical" href="{{ urlPagina }}">
+{%- if coppia %}{# articolo in due lingue: hreflang incrociati, x-default sull'italiano #}
+{%- set urlIt = page.url if lingua != "en" else coppia %}{% set urlEn = coppia if lingua != "en" else page.url %}
+<link rel="alternate" hreflang="it" href="{{ sito.url }}{{ urlIt }}">
+<link rel="alternate" hreflang="en" href="{{ sito.url }}{{ urlEn }}">
+<link rel="alternate" hreflang="x-default" href="{{ sito.url }}{{ urlIt }}">
+{%- endif %}
 <meta property="og:type" content="{{ og_type or 'website' }}">
 <meta property="og:site_name" content="{{ sito.nome }}">
 <meta property="og:title" content="{{ titoloPagina }}">
 <meta property="og:description" content="{{ descPagina }}">
 <meta property="og:url" content="{{ urlPagina }}">
-<meta property="og:locale" content="it_IT">
+<meta property="og:locale" content="{{ "en_US" if lingua == "en" else "it_IT" }}">
 {%- if immagine_og_url %}
 <meta property="og:image" content="{{ sito.url }}{{ immagine_og_url }}">
 {%- else %}
