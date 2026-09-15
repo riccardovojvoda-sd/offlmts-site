@@ -10,8 +10,7 @@ const LARGHEZZE = [480, 800, 1200, 1600];
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/font": "assets/font" });
   eleventyConfig.addPassthroughCopy({ "src/assets/js": "assets/js" });
-  eleventyConfig.addPassthroughCopy({ "src/assets/img/logo-offlmts-oro.png": "assets/img/logo-offlmts-oro.png" });
-  eleventyConfig.addPassthroughCopy({ "src/assets/img/logo-offlmts-bianco.png": "assets/img/logo-offlmts-bianco.png" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/img/logo-offlmts.png": "assets/img/logo-offlmts.png" });
   // Immagini dentro i post (prodotti, screenshot): copiate tali e quali, sono gia' piccole
   eleventyConfig.addPassthroughCopy({ "src/assets/img/dritte": "assets/img/dritte" });
   eleventyConfig.addPassthroughCopy({ "src/assets/file": "file" });

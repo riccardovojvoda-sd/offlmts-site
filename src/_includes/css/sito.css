@@ -57,8 +57,7 @@ code{font-family:var(--mono);font-size:.88em;background:var(--sup2);padding:.1em
 /* testata */
 .testata{display:flex;align-items:center;justify-content:space-between;gap:1rem 2rem;flex-wrap:wrap;padding:1rem var(--gutter);border-bottom:1px solid var(--linea);background:var(--fondo);position:sticky;top:0;z-index:20}
 .marchio{display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;text-decoration:none;color:var(--testo)}
-.marchio-logo{width:auto;height:26px}
-.marchio-sotto{font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muto)}
+.marchio-logo{width:auto;height:46px}
 .menu{display:flex;gap:1.4rem;align-items:center;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;max-width:100%;padding-bottom:2px}
 .menu::-webkit-scrollbar{display:none}
 .menu a{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--testo);text-decoration:none;white-space:nowrap;padding:.3em 0;border-bottom:2px solid transparent}
@@ -66,7 +65,7 @@ code{font-family:var(--mono);font-size:.88em;background:var(--sup2);padding:.1em
 .menu a[aria-current=page]{color:var(--oro);border-bottom-color:var(--oro)}
 .menu-cta{background:var(--oro);color:var(--oro-testo)!important;padding:.55em 1em!important;border-radius:3px;border-bottom:0!important;font-weight:700}
 .menu-cta:hover{background:var(--oro-chiaro)}
-@media (max-width:48em){.testata{padding-block:.75rem}.menu{width:100%;flex-wrap:wrap;gap:.5rem 1.1rem;overflow:visible}.marchio-logo{height:22px}}
+@media (max-width:48em){.testata{padding-block:.75rem}.menu{width:100%;flex-wrap:wrap;gap:.5rem 1.1rem;overflow:visible}.marchio-logo{height:34px}}
 
 /* sezioni */
 section{padding-block:clamp(2.5rem,6vw,4.5rem)}
