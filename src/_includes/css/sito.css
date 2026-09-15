@@ -65,6 +65,7 @@ code{font-family:var(--mono);font-size:.88em;background:var(--sup2);padding:.1em
 .menu a[aria-current=page]{color:var(--oro);border-bottom-color:var(--oro)}
 .menu-cta{background:var(--oro);color:var(--oro-testo)!important;padding:.55em 1em!important;border-radius:3px;border-bottom:0!important;font-weight:700}
 .menu-cta:hover{background:var(--oro-chiaro)}
+.menu-home{display:none} /* marchio corto "OFF" verso la home: solo nella barra mobile, sul desktop c'e' il logo intero */
 /* Sotto i 48em: in alto resta solo il logo (scorre via), il menu diventa una barra fissa IN FONDO allo schermo, su una riga,
    raggiungibile col pollice. Riga oro sopra (il colore della voce attiva) e ombra per staccarla dal contenuto.
    --barra-h = altezza della barra: serve al pie' (spazio sotto) e al torna-in-alto (che sale sopra la barra). */
@@ -72,8 +73,9 @@ code{font-family:var(--mono);font-size:.88em;background:var(--sup2);padding:.1em
   :root{--barra-h:calc(3.1rem + 3px + env(safe-area-inset-bottom,0px))}
   .testata{position:static;padding-block:.75rem;border-bottom:0}.marchio-logo{height:34px}
   .menu{position:fixed;left:0;right:0;bottom:0;z-index:20;width:100%;justify-content:space-between;gap:.4rem;overflow:visible;padding:.55rem var(--gutter) calc(.55rem + env(safe-area-inset-bottom,0px));background:rgba(11,10,9,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:3px solid var(--oro);box-shadow:0 -.5rem 1.5rem rgba(0,0,0,.45)}
-  .menu a{font-size:.66rem;letter-spacing:.08em;padding:.35em 0}
-  .menu-cta{padding:.5em .7em!important}
+  .menu a{font-size:.62rem;letter-spacing:.06em;padding:.35em 0}
+  .menu-cta{padding:.5em .6em!important}
+  .menu-home{display:flex;flex-shrink:0;padding:0;border:0}.menu-home img{width:26px;height:26px}
 }
 
 /* sezioni */
