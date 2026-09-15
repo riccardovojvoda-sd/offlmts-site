@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; frame-src https://open.spotify.com; connect-src 'self'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; frame-src https://open.spotify.com; connect-src 'self'; base-uri 'self'; form-action 'self' mailto: https://bbbced09.sibforms.com https://www.offlmts.com; upgrade-insecure-requests">
 {%- set titoloPagina = titolo_seo or (titolo + " | " + sito.nome if titolo else sito.nome) %}
 {%- set descPagina = descrizione_seo or descrizione or sito.descrizione %}
 {%- set urlPagina = sito.url + page.url %}

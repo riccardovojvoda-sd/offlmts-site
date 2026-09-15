@@ -10,7 +10,13 @@
   "mailCorpo": "Ciao!\nScrivi qui il tuo messaggio: raccontami chi sei, che esperienza hai con lo studio di registrazione.\nParlami del tuo progetto, dimmi cosa desideri ottenere dalla tua esperienza in studio!\nLeggerò attentamente e ti risponderò al più presto, solitamente entro 24/48 ore.\nGrazie!\nRiccardo",
   "whatsapp": "393495112571",
   "telegram": "OFFLMTS",
-  "indirizzo": { "via": "Via Verona 4", "cap": "33080", "comune": "Porcia", "provincia": "PN", "provinciaEstesa": "Pordenone" },
+  "indirizzo": {
+    "via": "Via Verona 4",
+    "cap": "33080",
+    "comune": "Porcia",
+    "provincia": "PN",
+    "provinciaEstesa": "Pordenone"
+  },
   "mappa": "https://www.google.com/maps/search/?api=1&query=Via+Verona+4%2C+33080+Porcia+PN",
   "social": {
     "instagram": "https://www.instagram.com/offlmts.recording.studio/",
@@ -25,5 +31,9 @@
     "smash": "https://fromsmash.com/it",
     "wetransfer": "https://wetransfer.com",
     "swisstransfer": "https://www.swisstransfer.com/it"
+  },
+  "drumkit": {
+    "modulo": "https://bbbced09.sibforms.com/serve/MUIFADfOAraiuIRhbIbIxzN6RnmS9WxIeOmg-H4odcm4j7bevqyG4FDHMFL3-lRnOuLf5yemdRGXbcEe6BC9kNXkRPxX8H3IpPN0GWeCaxymWOmCPBpzIABWEbo9SmHIYGxoUX5ccOpubWTzDF_Pps1TsVtKlmdQvXViJhSmn5MbeQGhbKEyiuj8ot1vfmDbA4m3NswCQzTw61L48Q==",
+    "download": "https://www.mediafire.com/file/m2mxffrpevci83n/OFFLMTS_Drumkit_Vol.1.zip/file"
   }
 }

@@ -1,0 +1,13 @@
+<form class="scarica" method="POST" action="{{ sito.drumkit.modulo }}" id="drumkit">
+  <p class="scarica-titolo">Free download</p>
+  <p class="scarica-testo">Leave a name (an alias is fine) and an email: the download starts right after.</p>
+  <div class="scarica-campi">
+    <label><span>Name or alias</span><input type="text" name="NOME" maxlength="200" required autocomplete="nickname" placeholder="Your name or artist name"></label>
+    <label><span>Email</span><input type="email" name="EMAIL" required autocomplete="email" placeholder="you@example.com"></label>
+  </div>
+  <label class="scarica-consenso"><input type="checkbox" name="OPT_IN" value="1" required><span>I agree to receive the drumkit link and, once in a while, news from the studio. I can unsubscribe anytime.</span></label>
+  <input type="text" name="email_address_check" value="" class="scarica-trappola" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <input type="hidden" name="locale" value="it">
+  <input type="hidden" name="html_type" value="simple">
+  <button type="submit" class="bottone">Send me the drumkit</button>
+</form>
