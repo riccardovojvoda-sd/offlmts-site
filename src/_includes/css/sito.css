@@ -65,7 +65,16 @@ code{font-family:var(--mono);font-size:.88em;background:var(--sup2);padding:.1em
 .menu a[aria-current=page]{color:var(--oro);border-bottom-color:var(--oro)}
 .menu-cta{background:var(--oro);color:var(--oro-testo)!important;padding:.55em 1em!important;border-radius:3px;border-bottom:0!important;font-weight:700}
 .menu-cta:hover{background:var(--oro-chiaro)}
-@media (max-width:48em){.testata{padding-block:.75rem}.menu{width:100%;flex-wrap:wrap;gap:.5rem 1.1rem;overflow:visible}.marchio-logo{height:34px}}
+/* Sotto i 48em: in alto resta solo il logo (scorre via), il menu diventa una barra fissa IN FONDO allo schermo, su una riga,
+   raggiungibile col pollice. Riga oro sopra (il colore della voce attiva) e ombra per staccarla dal contenuto.
+   --barra-h = altezza della barra: serve al pie' (spazio sotto) e al torna-in-alto (che sale sopra la barra). */
+@media (max-width:48em){
+  :root{--barra-h:calc(3.1rem + 3px + env(safe-area-inset-bottom,0px))}
+  .testata{position:static;padding-block:.75rem;border-bottom:0}.marchio-logo{height:34px}
+  .menu{position:fixed;left:0;right:0;bottom:0;z-index:20;width:100%;justify-content:space-between;gap:.4rem;overflow:visible;padding:.55rem var(--gutter) calc(.55rem + env(safe-area-inset-bottom,0px));background:rgba(11,10,9,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:3px solid var(--oro);box-shadow:0 -.5rem 1.5rem rgba(0,0,0,.45)}
+  .menu a{font-size:.66rem;letter-spacing:.08em;padding:.35em 0}
+  .menu-cta{padding:.5em .7em!important}
+}
 
 /* sezioni */
 section{padding-block:clamp(2.5rem,6vw,4.5rem)}
@@ -219,9 +228,11 @@ section{padding-block:clamp(2.5rem,6vw,4.5rem)}
 .pie a{color:var(--muto);text-decoration:none}
 .pie a:hover{color:var(--oro-chiaro)}
 .pie-copy{margin-top:2rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em}
+@media (max-width:48em){.pie{padding-block-end:calc(1.5rem + var(--barra-h))}} /* spazio per la barra fissa in fondo */
 
 /* torna su */
 .in-alto{position:fixed;right:max(1rem,env(safe-area-inset-right,0px));bottom:max(1rem,env(safe-area-inset-bottom,0px));width:2.75rem;height:2.75rem;display:flex;align-items:center;justify-content:center;background:var(--sup2);color:var(--oro);border:1px solid var(--linea);border-radius:50%;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;z-index:30}
 .in-alto.visibile{opacity:1;transform:none}
 .in-alto:hover{border-color:var(--oro)}
 @media (prefers-reduced-motion:reduce){.in-alto{transition:none}}
+@media (max-width:48em){.in-alto{bottom:calc(var(--barra-h) + .75rem)}} /* sopra la barra fissa */
