@@ -7,9 +7,9 @@ og_type: article
   <header class="intestazione">
     <div class="contenitore">
       {%- if lingua == "en" %}
-      <p class="occhiello"><a href="/en/tips/">Tips</a> · <time datetime="{{ page.date | dataIso }}">{{ page.date | dataEn }}</time></p>
+      <p class="occhiello"><a href="/en/tips/">Tips</a> · <time datetime="{{ page.date | dataIso }}">{{ page.date | dataEn }}</time>{% if aggiornato %} · updated <time datetime="{{ aggiornato | dataIso }}">{{ aggiornato | dataEn }}</time>{% endif %}</p>
       {%- else %}
-      <p class="occhiello"><a href="/dritte/">Dritte</a> · <time datetime="{{ page.date | dataIso }}">{{ page.date | dataIt }}</time></p>
+      <p class="occhiello"><a href="/dritte/">Dritte</a> · <time datetime="{{ page.date | dataIso }}">{{ page.date | dataIt }}</time>{% if aggiornato %} · aggiornato il <time datetime="{{ aggiornato | dataIso }}">{{ aggiornato | dataIt }}</time>{% endif %}</p>
       {%- endif %}
       <h1>{{ titolo }}</h1>
       {%- if coppia %}<p class="post-lingua"><a href="{{ coppia }}" hreflang="{{ "it" if lingua == "en" else "en" }}">{{ "Versione italiana" if lingua == "en" else "English version" }}</a></p>{% endif %}
@@ -36,6 +36,7 @@ og_type: article
   "headline": titolo,
   "description": descrizione,
   "datePublished": page.date | dataIso,
+  "dateModified": (aggiornato | dataIso) if aggiornato else (page.date | dataIso),
   "inLanguage": lingua or "it",
   "image": (sito.url + "/assets/img/dritte/" + copertina) if copertina else undefined,
   "author": { "@type": "Person", "name": sito.titolare, "alternateName": sito.alias },
