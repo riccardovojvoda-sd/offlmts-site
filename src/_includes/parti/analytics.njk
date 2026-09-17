@@ -1,6 +1,6 @@
 {#- Google Analytics 4 con consenso (Consent Mode v2). Attivo solo se sito.ga4 ha un ID (G-XXXXXXX).
     Il tag parte SOLO dopo il clic su "Accetto": prima non viene nemmeno caricato (niente cookie, niente dati a Google).
-    La scelta resta in localStorage (chiave "consenso-analytics"), si cambia dal link "Cookie" nel pie'. -#}
+    La scelta resta in localStorage (chiave "consenso-analytics"), si cambia dal link "Cookie" nel piè. -#}
 {%- if sito.ga4 %}
 {%- set ta = { testo: "This site uses Google Analytics to count visits and see which pages get read. No advertising. Do you accept?", si: "Accept", no: "No, thanks" } if lingua == "en" else { testo: "Questo sito usa Google Analytics per contare le visite e capire quali pagine vengono lette. Nessuna pubblicità. Accetti?", si: "Accetto", no: "No, grazie" } %}
 <script>

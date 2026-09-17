@@ -12,14 +12,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/font": "assets/font" });
   eleventyConfig.addPassthroughCopy({ "src/assets/js": "assets/js" });
   eleventyConfig.addPassthroughCopy({ "src/assets/img/logo-offlmts.png": "assets/img/logo-offlmts.png" });
-  // Immagini dentro i post (prodotti, screenshot): copiate tali e quali, sono gia' piccole
+  // Immagini dentro i post (prodotti, screenshot): copiate tali e quali, sono già piccole
   eleventyConfig.addPassthroughCopy({ "src/assets/img/dritte": "assets/img/dritte" });
   eleventyConfig.addPassthroughCopy({ "src/assets/file": "file" });
   eleventyConfig.addPassthroughCopy({ "src/radice": "." });
   eleventyConfig.addWatchTarget("src/_includes/css");
   eleventyConfig.addWatchTarget("lib");
 
-  // Post delle Dritte, dal piu' recente
+  // Post delle Dritte, dal più recente
   // Bozze (`bozza: true`, anteprima in /anteprima/<slug>/) e date future restano fuori: vedi lib/articoli.js
   eleventyConfig.addCollection("dritte", (api) =>
     api.getFilteredByTag("dritte").filter(pubblicato).sort((a, b) => b.date - a.date)
