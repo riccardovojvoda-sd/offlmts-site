@@ -23,8 +23,8 @@
 <meta property="og:description" content="{{ descPagina }}">
 <meta property="og:url" content="{{ urlPagina }}">
 <meta property="og:locale" content="{{ "en_US" if lingua == "en" else "it_IT" }}">
-{%- if immagine_og_url %}
-<meta property="og:image" content="{{ sito.url }}{{ immagine_og_url }}">
+{%- if copertina %}
+<meta property="og:image" content="{{ sito.url }}/assets/img/dritte/{{ copertina }}">
 {%- else %}
 <meta property="og:image" content="{{ sito.url }}{% imgUrl immagine_og or "studio/regia-hero.jpg", 1200 %}">
 {%- endif %}
