@@ -1,0 +1,55 @@
+---
+titolo: "The Recording Template: Set Up Your Session Once"
+date: 2026-09-18
+descrizione: "How my vocal recording template is built, and the principles to build your own in any DAW: beat and click, the mic track, empty tracks for takes, effects only in the headphones, how to organise and save takes without losing anything."
+copertina: pro-tools-template-registrazione-voce.jpg
+tags: ["recording template", "vocal recording", "home recording", "takes", "comping", "DAW", "Pro Tools", "Logic Pro", "Ableton Live", "FL Studio", "Reaper", "Cubase", "Fender Studio Pro"]
+coppia: /dritte/template-di-registrazione-voce/
+---
+<p>Every time you open your DAW to record vocals you do the same things again: the track with the beat, the click, the mic track, a bit of reverb to hear in the headphones. Do it once, save it as a template, and from that day on you open the project and hit REC. I'll tell you what I would do in your shoes, because it's what I do: my template is a bit more complex, but it follows the same principles. They work in any DAW: you choose the names of tracks and effects, what matters is the structure.</p>
+
+<h3>1. What is already there when I open the project</h3>
+<ul>
+<li><p><strong>Beat and click.</strong> One stereo track for the beat. First of all set the song tempo in BPM; if your DAW has one, create a click track. It can help even when the beat already has drums: in an a cappella intro or a bridge it keeps you in time.</p></li>
+<li><p><strong>The track you record on, just one.</strong> Name it after yourself, or after whoever you're about to record. It has the audio interface input where the mic comes in and the sends to the effects already open (see below). Every take is recorded here, then moved to the empty tracks underneath.</p></li>
+<li><p><strong>Lots of empty vocal tracks, underneath.</strong> All the same colour, different from the recording track, which in turn is different from the beat track; no input, output to a single vocal bus (a bus, or aux, is a channel where several tracks meet: you manage volume and effects for all the vocals together). I prefer not to prepare the categories in advance, "two tracks for the lead and four for the doubles": every song is different, sometimes one take is enough, sometimes you need twenty, so I decide later. I keep dozens of empty ones; at the end of the session I delete the ones still empty and hide the ones holding the takes I muted and discarded while recording.</p></li>
+<li><p><strong>Two effects on aux, headphones only.</strong> An aux (in some DAWs it's called a bus) is a channel that receives a bit of signal from the tracks through the sends and puts an effect plugin on it. Two are enough: a hall reverb, filtered below 500 Hz and above 5 kHz (the old Abbey Road trick: you hear the reverb, but it doesn't smear the voice, a reverb that works on almost anything and is set in a second), and a stereo delay on eighth notes locked to the project tempo. They're for the singer: with a touch of reverb in the headphones you pitch more willingly. They never end up on the recorded file.</p></li>
+<li><p><strong>The headphones.</strong> Beat, click and voice reach the headphones with their volumes already set. If you hear too little voice but the preamp gain is already right, turn the beat down (with mastered beats I usually keep the fader at -20 dB) and turn the headphone amp up. Latency, direct monitoring and volume are in the guide on how to record vocals at home.</p></li>
+</ul>
+
+<h3>2. Project settings</h3>
+<ul>
+<li><p><strong>24 bit</strong> (or 32 bit float, if your DAW offers it). Sample rate <strong>the same as the beat</strong>, 44.1 or 48 kHz.</p></li>
+<li><p><strong>Buffer</strong> low for recording (32 or 64 samples).</p></li>
+<li><p><strong>Files take their name from the track.</strong> Almost every DAW does it on its own: if the recording track is named after the artist, the takes are called Artist_01, Artist_02, and you find them outside the project too. You can also rename the recording track after what you're about to record, say Chorus1_Artist. I prefer to do it later, but I mix what I record: that may not be your case.</p></li>
+</ul>
+
+<h3>3. During and after the recording</h3>
+<ul>
+<li><p><strong>Markers</strong> on verse, chorus, bridge, as soon as you've listened to the beat once. You jump to the spot with a key instead of hunting with the mouse.</p></li>
+<li><p><strong>All takes are created on the recording track.</strong> After every stop you drag the take onto one of the empty tracks below: one take per track, or several takes of the same kind (lead, doubles, and so on) one after another on the same track, as long as they don't overlap. You can organise them by section and already open the pans for doubles and harmonies. At this point I copy the sends from the recording track onto the tracks where they belong, with the amount of reverb and delay that fits, still monitoring only. The song takes shape as you record.</p></li>
+<li><p><strong>Choose while it's hot.</strong> The good take stays on, the others get muted and moved to the bottom. But don't throw them away: it has happened to me very often, in editing or mixing, to rescue from a "wrong" take one syllable to cover a mistake, or a double in a spot where you only realise it was needed while mixing. Delete only the truly unsalvageable ones. Audio takes up very little space anyway.</p></li>
+<li><p><strong>At the end of the session rename the tracks</strong> after what they contain, for example LEAD, DBL, ADLIB, HARM: you pick the labels, upper case, lower case, as you like, as long as they're clear. When you export, the mix engineer knows what they are without asking (how to do it, DAW by DAW, in <a href="/en/tips/how-to-export-stems-from-any-daw/">How to Export Stems from Any DAW</a>).</p></li>
+</ul>
+
+<h3>4. Plugins on the track: yes, but only you hear them</h3>
+<p>One clarification, because you read everywhere (here too) "no compressor, no EQ, no autotune while recording". The reason is right: what you print on the file you can't remove any more. But in almost every DAW the plugins in the inserts of the armed track work <strong>after</strong> the point where the signal is written to disk: you hear them in the headphones while you sing and the file stays clean. So go ahead and add whatever helps you sing, a compressor to feel more present, a distortion to get into the mood, knowing that what goes to disk is the original voice, to be mixed properly later.</p>
+<p>Not sure your DAW works that way? Record two seconds with the plugin on, then switch it off and listen back: if the voice changes, the plugin was monitoring only. (BandLab is a known exception: it prints the effects.)</p>
+<p>Whoever really wants to print a treatment (on the way in I compress, EQ and de-ess, but after years in the job) routes the mic through an aux with the effects, and from there to an audio track that records the result. It's a choice to make knowing what you're doing: if in doubt, no need to take the risk.</p>
+
+<h3>5. Saving</h3>
+<ul>
+<li><p><strong>Save as template.</strong> Almost every DAW has the command in the File menu. Make one per situation: vocals only, vocals and guitar, and so on. The template stays clean, real projects are born from it.</p></li>
+<li><p><strong>Order on disk.</strong> One folder per artist, inside it one per year, inside that one per song with everything that belongs to it. Plus a "materials" folder for work stuff still scattered around, which you move into the song folder once you use it. A year from now you find everything without searching.</p></li>
+</ul>
+
+<h3>6. Before hitting REC</h3>
+<ul>
+<li><p>Beat and click in the headphones, at the right levels.</p></li>
+<li><p>The armed track is the one with the mic input.</p></li>
+<li><p>Gain tested on the loudest part of the song, not on the verse.</p></li>
+<li><p>Last time's takes are already on their tracks, you're not recording over them.</p></li>
+<li><p>The project has the right name, not "Template copy 3".</p></li>
+</ul>
+
+<p>Room, mic, distance and gain are the other half of the job: they're in the guide on how to record vocals at home, coming soon. When you're done, <a href="/en/tips/how-to-export-stems-from-any-daw/">export the stems</a> and check <a href="/prepara-il-materiale/">Prepare Your Files</a> for what else I need. If something doesn't add up, <a href="/contatti/">write to me</a>.</p>
