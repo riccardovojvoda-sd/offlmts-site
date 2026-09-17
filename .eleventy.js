@@ -4,6 +4,7 @@
 const path = require("path");
 const Image = require("@11ty/eleventy-img");
 const { minify } = require("html-minifier-terser");
+const { pubblicato } = require("./lib/articoli");
 
 const LARGHEZZE = [480, 800, 1200, 1600];
 
@@ -16,14 +17,16 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/file": "file" });
   eleventyConfig.addPassthroughCopy({ "src/radice": "." });
   eleventyConfig.addWatchTarget("src/_includes/css");
+  eleventyConfig.addWatchTarget("lib");
 
   // Post delle Dritte, dal piu' recente
+  // Bozze (`bozza: true`, anteprima in /anteprima/<slug>/) e date future restano fuori: vedi lib/articoli.js
   eleventyConfig.addCollection("dritte", (api) =>
-    api.getFilteredByTag("dritte").sort((a, b) => b.date - a.date)
+    api.getFilteredByTag("dritte").filter(pubblicato).sort((a, b) => b.date - a.date)
   );
   // Versioni inglesi degli articoli: /en/tips/<slug>/, elenco in /en/tips/. Coppia IT/EN dichiarata nel front matter (`coppia`) e legata con hreflang.
   eleventyConfig.addCollection("tips", (api) =>
-    api.getFilteredByTag("tips").sort((a, b) => b.date - a.date)
+    api.getFilteredByTag("tips").filter(pubblicato).sort((a, b) => b.date - a.date)
   );
 
   // Shortcode immagine responsive: {% img "studio/regia-hero.jpg", "alt", "(min-width: 60em) 50vw, 100vw", "lazy" %}
