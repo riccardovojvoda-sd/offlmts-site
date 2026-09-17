@@ -3,6 +3,7 @@ layout: layouts/base.njk
 og_type: article
 ---
 <article class="post">
+  {%- if bozza %}<p class="post-bozza contenitore">{{ "DRAFT: preview page, not published yet" if lingua == "en" else "BOZZA: pagina di anteprima, non ancora pubblicata" }}</p>{% endif %}
   <header class="intestazione">
     <div class="contenitore">
       {%- if lingua == "en" %}

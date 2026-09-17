@@ -1,6 +1,0 @@
-{
-  "layout": "layouts/post.njk",
-  "tags": ["tips"],
-  "lingua": "en",
-  "permalink": "/en/tips/{{ page.fileSlug }}/"
-}
