@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; frame-src https://open.spotify.com; connect-src 'self'; base-uri 'self'; form-action 'self' mailto: https://bbbced09.sibforms.com https://www.offlmts.com{% if not anteprima %}; upgrade-insecure-requests{% endif %}">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:{% if sito.ga4 %} https://*.google-analytics.com https://*.googletagmanager.com{% endif %}; script-src 'self' 'unsafe-inline'{% if sito.ga4 %} https://www.googletagmanager.com{% endif %}; style-src 'self' 'unsafe-inline'; font-src 'self'; frame-src https://open.spotify.com; connect-src 'self'{% if sito.ga4 %} https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com{% endif %}; base-uri 'self'; form-action 'self' mailto: https://bbbced09.sibforms.com https://www.offlmts.com{% if not anteprima %}; upgrade-insecure-requests{% endif %}">
 {%- set titoloPagina = titolo_seo or (titolo + " | " + sito.nome if titolo else sito.nome) %}
 {%- set descPagina = descrizione_seo or descrizione or sito.descrizione %}
 {%- set urlPagina = sito.url + page.url %}
@@ -36,6 +36,7 @@
 <link rel="preload" href="/assets/font/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>{% include "css/sito.css" %}</style>
 {% block head %}{% endblock %}
+{% include "parti/analytics.njk" %}
 <script type="application/ld+json">{{ {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -63,6 +64,7 @@
 </main>
 {% if not senzaContatto %}{% include "parti/contatto.njk" %}{% endif %}
 {% include "parti/pie.njk" %}
+{% include "parti/cookie-banner.njk" %}
 <a class="in-alto" href="#" aria-label="Torna su" title="Torna su" hidden><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M6 14l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 <script src="/assets/js/in-alto.js" defer></script>
 <script src="/assets/js/ascolta.js" defer></script>

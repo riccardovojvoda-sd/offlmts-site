@@ -19,5 +19,5 @@
       <a href="{{ sito.social.sounddesignrv }}" rel="me noopener">Sound Design RV</a>
     </nav>
   </div>
-  <p class="pie-copy contenitore">© {{ "" | anno }} {{ sito.nome }} · {{ sito.titolare }}</p>
+  <p class="pie-copy contenitore">© {{ "" | anno }} {{ sito.nome }} · {{ sito.titolare }}{% if sito.ga4 %} · <a href="#" onclick="return mostraBannerCookie()">Cookie</a>{% endif %}</p>
 </footer>

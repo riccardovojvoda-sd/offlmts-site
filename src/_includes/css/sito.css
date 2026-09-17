@@ -250,3 +250,10 @@ section{padding-block:clamp(2.5rem,6vw,4.5rem)}
 
 /* Bozza in anteprima (/anteprima/<slug>/): avviso in cima */
 .post-bozza{background:var(--oro,#d4a53a);color:#111;font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:.6rem 1rem;border-radius:.5rem;margin-top:1rem;text-align:center}
+
+/* Banner cookie (solo con Google Analytics attivo) */
+.cookie-banner{position:fixed;left:1rem;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:90;max-width:34rem;margin-inline:auto;background:var(--sup2,#1a1917);color:var(--testo,#f3ede3);padding:1rem 1.25rem;border:1px solid var(--linea,#333);border-radius:6px;box-shadow:0 1rem 2.5rem rgba(0,0,0,.5);font-size:.92rem}
+.cookie-banner p{margin:0 0 .75rem}
+.cookie-bottoni{display:flex;gap:.6rem;flex-wrap:wrap}
+.cookie-banner .bottone{cursor:pointer}
+@media(max-width:48em){.cookie-banner{bottom:calc(var(--barra-h,4.5rem) + .75rem)}}

@@ -1,0 +1,30 @@
+{#- Google Analytics 4 con consenso (Consent Mode v2). Attivo solo se sito.ga4 ha un ID (G-XXXXXXX).
+    Il tag parte SOLO dopo il clic su "Accetto": prima non viene nemmeno caricato (niente cookie, niente dati a Google).
+    La scelta resta in localStorage (chiave "consenso-analytics"), si cambia dal link "Cookie" nel pie'. -#}
+{%- if sito.ga4 %}
+{%- set ta = { testo: "This site uses Google Analytics to count visits and see which pages get read. No advertising. Do you accept?", si: "Accept", no: "No, thanks" } if lingua == "en" else { testo: "Questo sito usa Google Analytics per contare le visite e capire quali pagine vengono lette. Nessuna pubblicità. Accetti?", si: "Accetto", no: "No, grazie" } %}
+<script>
+(function(){
+  var ID="{{ sito.ga4 }}",K="consenso-analytics";
+  window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;
+  gtag("consent","default",{ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",analytics_storage:"denied",wait_for_update:500});
+  function carica(){
+    if(window.__gaCaricato)return;window.__gaCaricato=true;
+    gtag("consent","update",{analytics_storage:"granted"});
+    var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id="+ID;document.head.appendChild(s);
+    gtag("js",new Date());gtag("config",ID,{anonymize_ip:true});
+  }
+  function scelta(){try{return localStorage.getItem(K);}catch(e){return null;}}
+  function salva(v){try{localStorage.setItem(K,v);}catch(e){}}
+  function banner(){
+    var b=document.getElementById("cookie-banner");if(!b)return;b.hidden=false;
+    b.querySelector("[data-si]").onclick=function(){salva("si");b.hidden=true;carica();};
+    b.querySelector("[data-no]").onclick=function(){salva("no");b.hidden=true;};
+  }
+  window.mostraBannerCookie=function(){try{localStorage.removeItem(K);}catch(e){}banner();return false;};
+  document.addEventListener("DOMContentLoaded",function(){
+    var v=scelta();if(v==="si")carica();else if(v!=="no")banner();
+  });
+})();
+</script>
+{%- endif %}
