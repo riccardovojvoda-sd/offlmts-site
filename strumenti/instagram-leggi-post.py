@@ -9,11 +9,12 @@ def osa(s):
     return r.stdout.strip()
 def js(code):
     code=code.replace('\\','\\\\').replace('"','\\"')
-    return osa(f'tell application "Brave Browser" to execute tab {TAB} of window {WIN} javascript "{code}"')
-prev=osa('tell application "Brave Browser" to get active tab index of front window')
-osa(f'tell application "Brave Browser" to tell front window to make new tab with properties {{URL:"https://www.instagram.com/{profilo}/"}}')
-WIN='1'; TAB=osa('tell application "Brave Browser" to get active tab index of front window')
-osa(f'tell application "Brave Browser" to set active tab index of front window to {prev}')
+    return osa(f'tell application "Brave Browser" to execute tab id {TAB} of window id {WIN} javascript "{code}"')
+# finestra e tab per id (non per indice: se Riccardo cambia tab o finestra nel frattempo, l'indice salta)
+WIN=osa('tell application "Brave Browser" to get id of front window')
+prev=osa(f'tell application "Brave Browser" to get active tab index of window id {WIN}')
+TAB=osa(f'tell application "Brave Browser" to tell window id {WIN} to get id of (make new tab with properties {{URL:"https://www.instagram.com/{profilo}/"}})')
+osa(f'tell application "Brave Browser" to set active tab index of window id {WIN} to {prev}')
 time.sleep(6)
 JS=r'''
 (function(){
@@ -57,6 +58,6 @@ for i in range(60):
     if js('window.__ig.stato')=='fatto2': break
 dati=json.loads(js('JSON.stringify(window.__ig.post)'))
 open(out,'w').write(json.dumps(dati,ensure_ascii=False))
-osa(f'tell application "Brave Browser" to close tab {TAB} of window {WIN}')
+osa(f'tell application "Brave Browser" to close tab id {TAB} of window id {WIN}')
 osa(f'tell application "Brave Browser" to set active tab index of front window to {prev}')
 print('salvato',out,'con',len(dati),'post;',sum(1 for d in dati if d.get('b64')),'miniature')
