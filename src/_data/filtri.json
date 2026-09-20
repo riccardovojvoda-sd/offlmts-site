@@ -1,0 +1,19 @@
+{
+  "per_chi": {
+    "rapper-cantante": { "it": "Rapper e cantanti", "en": "Rappers and singers" },
+    "producer": { "it": "Producer e beatmaker", "en": "Producers and beatmakers" }
+  },
+  "argomento": {
+    "registrare": { "it": "Registrare", "en": "Recording" },
+    "mix-master": { "it": "Mix e master", "en": "Mixing and mastering" },
+    "beat-produzione": { "it": "Beat e produzione", "en": "Beats and production" },
+    "pubblicare": { "it": "Pubblicare e promuovere", "en": "Releasing and promotion" },
+    "attrezzatura": { "it": "Attrezzatura", "en": "Gear" },
+    "diritti": { "it": "Diritti e licenze", "en": "Rights and licensing" },
+    "gratis": { "it": "Risorse gratis", "en": "Free resources" }
+  },
+  "testi": {
+    "it": { "cerca": "Cerca nelle dritte", "per_chi": "Per chi", "argomento": "Argomento", "tutti": "Tutti", "tutte": "Tutte", "nessuno": "Nessuna dritta con questi filtri.", "azzera": "Azzera i filtri", "conta": "{n} dritte", "conta1": "1 dritta" },
+    "en": { "cerca": "Search the tips", "per_chi": "For whom", "argomento": "Topic", "tutti": "All", "tutte": "All", "nessuno": "No tips match these filters.", "azzera": "Clear filters", "conta": "{n} tips", "conta1": "1 tip" }
+  }
+}

@@ -12,6 +12,8 @@ classeBody: dritte-pagina
 <section style="padding-top:0">
   <div class="contenitore">
     {%- set lista = collections.tips %}
+    {%- set l = "en" %}
+    {% include "parti/filtri.njk" %}
     {% include "parti/dritte-lista.njk" %}
     <p class="post-lingua" style="margin-top:2rem"><a href="/dritte/" hreflang="it">Versione italiana</a></p>
   </div>

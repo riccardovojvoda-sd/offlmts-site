@@ -1,0 +1,22 @@
+{#- Barra dei filtri per le liste di articoli: vuole `lista` (collezione) e `l` (lingua). Mostra solo i valori usati da almeno un articolo. -#}
+{%- set t = filtri.testi[l] %}
+{%- set usatiChi = [] %}{% set usatiArg = [] %}
+{%- for p in lista %}
+  {%- for v in (p.data.per_chi or []) %}{% if v not in usatiChi %}{% set usatiChi = (usatiChi.push(v), usatiChi) %}{% endif %}{% endfor %}
+  {%- for v in (p.data.argomento or []) %}{% if v not in usatiArg %}{% set usatiArg = (usatiArg.push(v), usatiArg) %}{% endif %}{% endfor %}
+{%- endfor %}
+<form class="filtri" data-filtri role="search" onsubmit="return false">
+  <label class="filtri-cerca"><span class="sr-only">{{ t.cerca }}</span><input type="search" name="q" placeholder="{{ t.cerca }}" autocomplete="off"></label>
+  <div class="filtri-gruppo" data-gruppo="chi">
+    <span class="filtri-nome">{{ t.per_chi }}</span>
+    <button type="button" class="chip attivo" data-v="">{{ t.tutti }}</button>
+    {%- for k, v in filtri.per_chi %}{% if k in usatiChi %}<button type="button" class="chip" data-v="{{ k }}">{{ v[l] }}</button>{% endif %}{% endfor %}
+  </div>
+  <div class="filtri-gruppo" data-gruppo="argomento">
+    <span class="filtri-nome">{{ t.argomento }}</span>
+    <button type="button" class="chip attivo" data-v="">{{ t.tutte }}</button>
+    {%- for k, v in filtri.argomento %}{% if k in usatiArg %}<button type="button" class="chip" data-v="{{ k }}">{{ v[l] }}</button>{% endif %}{% endfor %}
+  </div>
+  <p class="filtri-esito"><span data-conta data-uno="{{ t.conta1 }}" data-molti="{{ t.conta }}"></span> <button type="button" class="filtri-azzera" data-azzera hidden>{{ t.azzera }}</button></p>
+  <p class="filtri-vuoto" data-vuoto hidden>{{ t.nessuno }}</p>
+</form>

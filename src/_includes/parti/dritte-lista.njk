@@ -1,6 +1,6 @@
-<ul class="dritte-lista">
+<ul class="dritte-lista" data-lista>
   {%- for p in lista %}
-  <li class="dritta">
+  <li class="dritta" data-chi="{{ (p.data.per_chi or []) | join(" ") }}" data-argomento="{{ (p.data.argomento or []) | join(" ") }}" data-testo="{{ (p.data.titolo + " " + p.data.descrizione) | lower }}">
     <a href="{{ p.url }}" class="dritta-link">
       {%- if p.data.copertina %}<span class="dritta-cop"><img src="/assets/img/dritte/{{ p.data.copertina }}" alt="" loading="lazy" decoding="async"></span>{% endif %}
       <span class="dritta-testo">
