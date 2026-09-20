@@ -9,6 +9,16 @@
   var vuoto = form.querySelector("[data-vuoto]");
   var azzera = form.querySelector("[data-azzera]");
   var stato = { chi: "", argomento: "", q: "" };
+  var apri = form.querySelector("[data-apri]");
+  var gruppi = form.querySelector("[data-gruppi]");
+
+  // Le parole chiave stanno chiuse: si aprono con la freccia (o da sole se l'URL porta già un filtro).
+  function mostraGruppi(aperto) {
+    gruppi.hidden = !aperto;
+    apri.setAttribute("aria-expanded", aperto);
+    apri.classList.toggle("aperto", aperto);
+  }
+  apri.addEventListener("click", function () { mostraGruppi(gruppi.hidden); });
 
   function applica() {
     var q = stato.q.trim().toLowerCase();
@@ -50,5 +60,6 @@
   stato.argomento = iniziale.get("argomento") || "";
   stato.q = iniziale.get("q") || "";
   cerca.value = stato.q;
+  if (stato.chi || stato.argomento) mostraGruppi(true);
   applica();
 })();

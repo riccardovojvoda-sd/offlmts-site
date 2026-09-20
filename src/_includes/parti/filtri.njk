@@ -6,7 +6,11 @@
   {%- for v in (p.data.argomento or []) %}{% if v not in usatiArg %}{% set usatiArg = (usatiArg.push(v), usatiArg) %}{% endif %}{% endfor %}
 {%- endfor %}
 <form class="filtri" data-filtri role="search" onsubmit="return false">
-  <label class="filtri-cerca"><span class="sr-only">{{ t.cerca }}</span><input type="search" name="q" placeholder="{{ t.cerca }}" autocomplete="off"></label>
+  <div class="filtri-riga">
+    <label class="filtri-cerca"><span class="sr-only">{{ t.cerca }}</span><input type="search" name="q" placeholder="{{ t.cerca }}" autocomplete="off"></label>
+    <button type="button" class="filtri-apri" data-apri aria-expanded="false" aria-controls="filtri-gruppi" title="{{ t.filtri }}"><span>{{ t.filtri }}</span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </div>
+  <div class="filtri-gruppi" id="filtri-gruppi" data-gruppi hidden>
   <div class="filtri-gruppo" data-gruppo="chi">
     <span class="filtri-nome">{{ t.per_chi }}</span>
     <button type="button" class="chip attivo" data-v="">{{ t.tutti }}</button>
@@ -16,6 +20,7 @@
     <span class="filtri-nome">{{ t.argomento }}</span>
     <button type="button" class="chip attivo" data-v="">{{ t.tutte }}</button>
     {%- for k, v in filtri.argomento %}{% if k in usatiArg %}<button type="button" class="chip" data-v="{{ k }}">{{ v[l] }}</button>{% endif %}{% endfor %}
+  </div>
   </div>
   <p class="filtri-esito"><span data-conta data-uno="{{ t.conta1 }}" data-molti="{{ t.conta }}"></span> <button type="button" class="filtri-azzera" data-azzera hidden>{{ t.azzera }}</button></p>
   <p class="filtri-vuoto" data-vuoto hidden>{{ t.nessuno }}</p>

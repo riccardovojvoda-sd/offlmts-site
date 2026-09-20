@@ -260,6 +260,14 @@ section{padding-block:clamp(2.5rem,6vw,4.5rem)}
 
 /* Filtri delle dritte */
 .filtri{display:flex;flex-direction:column;gap:.9rem;margin:0 0 1.6rem;padding:1.1rem 1.2rem;background:var(--sup2);border:1px solid var(--linea);border-radius:4px}
+.filtri-riga{display:flex;gap:.6rem;align-items:stretch}
+.filtri-cerca{flex:1;min-width:0}
+.filtri-apri{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:0 .9em;color:var(--muto);background:var(--sup);border:1px solid var(--linea);border-radius:3px;cursor:pointer;white-space:nowrap}
+.filtri-apri:hover,.filtri-apri.aperto{color:var(--testo);border-color:var(--verde)}
+.filtri-apri svg{transition:transform .2s}
+.filtri-apri.aperto svg{transform:rotate(180deg)}
+.filtri-gruppi{display:flex;flex-direction:column;gap:.7rem}
+.filtri-gruppi[hidden]{display:none}
 .filtri-cerca input{width:100%;box-sizing:border-box;font:inherit;font-size:1rem;padding:.7em .9em;color:var(--testo);background:var(--sup);border:1px solid var(--linea);border-radius:3px}
 .filtri-cerca input:focus{outline:none;border-color:var(--verde)}
 .filtri-gruppo{display:flex;flex-wrap:wrap;align-items:center;gap:.45rem}
