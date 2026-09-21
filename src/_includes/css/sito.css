@@ -150,6 +150,7 @@ section{padding-block:clamp(2.5rem,6vw,4.5rem)}
 .dritta-testo span{color:var(--muto);font-size:.92rem}
 .post-corpo{max-width:46rem;font-size:1.05rem}
 .post-corpo h2,.post-corpo h3,.post-corpo h4{margin-top:1.8em;color:var(--oro)}
+.post-corpo .fonti{font-size:.85rem;color:var(--muto);line-height:1.5}
 .post-corpo a{color:var(--verde-chiaro)}
 .post-lingua{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;margin:.9rem 0 0}
 .post-corpo a:hover{color:var(--testo)}
