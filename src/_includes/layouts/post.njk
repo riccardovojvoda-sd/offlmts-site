@@ -26,6 +26,14 @@ og_type: article
     </ul>
   </div>
   {%- endif %}
+  {#- Da leggere anche: 3 dritte correlate per argomento e per chi, completate con le più recenti (lib/correlati.js) -#}
+  {%- set lista = (collections.tips if lingua == "en" else collections.dritte) | correlati(page.url, 3, { argomento: argomento, per_chi: per_chi }) %}
+  {%- if lista.length %}
+  <aside class="contenitore post-correlati" aria-label="{{ "Also worth reading" if lingua == "en" else "Da leggere anche" }}">
+    <h2 class="occhiello">{{ "Also worth reading" if lingua == "en" else "Da leggere anche" }}</h2>
+    {% include "parti/dritte-lista.njk" %}
+  </aside>
+  {%- endif %}
   <div class="contenitore post-fine">
     {%- if lingua == "en" %}<a class="bottone vuoto" href="/en/tips/">All tips</a>{% else %}<a class="bottone vuoto" href="/dritte/">Tutte le Dritte</a>{% endif %}
   </div>

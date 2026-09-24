@@ -84,6 +84,7 @@ module.exports = function (eleventyConfig) {
     return x.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
   });
   eleventyConfig.addFilter("json", (v) => JSON.stringify(v));
+  eleventyConfig.addFilter("correlati", require("./lib/correlati").correlati);
   eleventyConfig.addFilter("primi", (arr, n) => (arr || []).slice(0, n));
 
   // Tutti i link verso altri siti si aprono in una nuova scheda.
