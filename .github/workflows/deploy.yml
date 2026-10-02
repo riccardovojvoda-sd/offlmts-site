@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write   # serve allo script uscita-di-riserva per il commit della nuova data
   pages: write
   id-token: write
 
@@ -30,6 +30,13 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Uscita di riserva (solo alla build programmata dell'ora di uscita)
+        # Se l'articolo di oggi non è pronto, anticipa a oggi il primo articolo pronto (regola del 02/10/2026).
+        if: github.event_name == 'schedule'
+        run: |
+          if [ "$(date -u +%H)" -ge 12 ]; then
+            node scripts/uscita-di-riserva.js --cartelle src/dritte --ora 17:00
+          fi
       - run: npm run build
       - name: Controllo pre-pubblicazione
         run: |
