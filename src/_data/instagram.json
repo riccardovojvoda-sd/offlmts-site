@@ -1,5 +1,11 @@
 [
  {
+  "url": "https://www.instagram.com/p/DeKRS4MDVvq/",
+  "copertina": "DeKRS4MDVvq.jpg",
+  "didascalia": "Foto dallo studio",
+  "tipo": "p"
+ },
+ {
   "url": "https://www.instagram.com/p/DeCwpZ5AdMU/",
   "copertina": "DeCwpZ5AdMU.jpg",
   "didascalia": "Foto dallo studio",
@@ -64,11 +70,5 @@
   "copertina": "CuGYEkwNdJj.jpg",
   "didascalia": "Foto dallo studio",
   "tipo": "p"
- },
- {
-  "url": "https://www.instagram.com/reel/CsjPgoAuWz0/",
-  "copertina": "CsjPgoAuWz0.jpg",
-  "didascalia": "La Flex x Trich - La luna, forse 🔊 Link in bio",
-  "tipo": "reel"
  }
 ]
