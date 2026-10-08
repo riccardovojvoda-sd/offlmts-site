@@ -16,7 +16,9 @@ Stessa ricetta di `sounddesignrv-site`, una lingua sola (italiano).
 - `src/dritte/*.html`: i post del blog "Dritte" (HTML pulito ricavato dal vecchio sito Squarespace, frontmatter con titolo, data, descrizione, copertina, tag).
 - `src/_data/sito.json`: nome, contatti, indirizzo, profili social, link di trasferimento file.
 - `src/_data/instagram.json`: i post Instagram mostrati nella strip della home (`url`, `copertina` in `src/assets/img/instagram/`, `didascalia`). Vuoto = la sezione non compare. Si aggiorna a mano quando Riccardo pubblica un post.
-- `src/_data/reindirizzi.json`: vecchi URL Squarespace (`/about`, `/tariffe`, `/cart`, `/contact`) che rimandano alle pagine nuove.
+- `src/_data/reindirizzi.json`: vecchi URL Squarespace (`/about`, `/tariffe`, `/cart`, `/contact`) che rimandano alle pagine nuove, e indirizzi corti da usare sui social (es. `/distrokid` per la dritta DistroKid).
+- `src/privacy.njk` e `src/en/privacy.njk`: informativa privacy e cookie (hosting GitHub Pages, Google Analytics solo col consenso, modulo drumkit Brevo, contatti, player Spotify). Linkata dal piè e dal banner cookie. Se si aggiunge un servizio che tratta dati, aggiornarla.
+- `instagram-caroselli/<dritta>/`: caroselli Instagram tratti dalle dritte (HTML con font e colori del sito, `rendi-carosello.py` lo trasforma in PNG 1080x1350 con Playwright).
 - `src/_includes/css/sito.css`: tutto lo stile. Palette "oro, nero e verde cabina": oro del logo `#D4964B`, verde `#2E8B7D`, fondo `#0B0A09`. Titoli Space Mono, testo IBM Plex Sans, font in `src/assets/font/` (da @fontsource).
 - `src/radice/`: favicon, manifest, robots, CNAME.
 - `materiali/` (non nel repo): archivio completo del vecchio sito Squarespace (HTML, testi, immagini, CSS), in Dropbox.

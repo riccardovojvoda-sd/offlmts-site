@@ -1,7 +1,7 @@
 {%- if sito.ga4 %}
-{%- set ta = { testo: "This site uses Google Analytics to count visits and see which pages get read. No advertising. Do you accept?", si: "Accept", no: "No, thanks" } if lingua == "en" else { testo: "Questo sito usa Google Analytics per contare le visite e capire quali pagine vengono lette. Nessuna pubblicità. Accetti?", si: "Accetto", no: "No, grazie" } %}
+{%- set ta = { testo: "This site uses Google Analytics to count visits and see which pages get read. No advertising. Do you accept?", si: "Accept", no: "No, thanks", info: "Privacy" } if lingua == "en" else { testo: "Questo sito usa Google Analytics per contare le visite e capire quali pagine vengono lette. Nessuna pubblicità. Accetti?", si: "Accetto", no: "No, grazie", info: "Privacy" } %}
 <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie" hidden>
-  <p>{{ ta.testo }}</p>
+  <p>{{ ta.testo }} <a href="{{ '/en/privacy/' if lingua == 'en' else '/privacy/' }}">{{ ta.info }}</a></p>
   <div class="cookie-bottoni"><button type="button" class="bottone" data-si>{{ ta.si }}</button><button type="button" class="bottone vuoto" data-no>{{ ta.no }}</button></div>
 </div>
 {%- endif %}

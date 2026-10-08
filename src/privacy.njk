@@ -1,0 +1,37 @@
+---
+layout: layouts/pagina.njk
+permalink: /privacy/
+titolo: Privacy e cookie
+titolo_seo: Privacy e cookie | OFFLMTS Recording Studio
+descrizione: Quali dati raccoglie il sito di OFFLMTS Recording Studio, perché, con quali servizi e come puoi chiederne la cancellazione. Statistiche solo con il tuo consenso.
+coppia: /en/privacy/
+occhiello: Informativa
+sottotitolo: "Questo sito raccoglie il minimo indispensabile. Qui trovi cosa, perché e con quali servizi. Ultimo aggiornamento: 8 ottobre 2026."
+---
+<section style="padding-top:0">
+  <div class="contenitore guida">
+    <h2>Chi tratta i dati</h2>
+    <p>Il titolare del trattamento è {{ sito.titolare }}, {{ sito.nome }}, {{ sito.indirizzo.via }}, {{ sito.indirizzo.cap }} {{ sito.indirizzo.comune }} ({{ sito.indirizzo.provincia }}). Per qualsiasi domanda sui tuoi dati scrivi a <a href="mailto:{{ sito.email }}">{{ sito.email }}</a>.</p>
+
+    <h2>Navigazione</h2>
+    <p>Il sito è ospitato su GitHub Pages (GitHub Inc., Stati Uniti). Come ogni server, registra dati tecnici delle visite (indirizzo IP, browser, pagina richiesta) per farlo funzionare e proteggerlo. GitHub aderisce all'EU-US Data Privacy Framework. Dettagli: <a href="https://docs.github.com/it/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">informativa di GitHub</a>.</p>
+    <p>Font e immagini sono caricati dal sito stesso: nessuna richiesta a Google Fonts o ad altri servizi esterni.</p>
+
+    <h2>Cookie e statistiche</h2>
+    <p>Il sito non usa cookie di profilazione né pubblicità.</p>
+    <p>Usa Google Analytics 4 (Google Ireland Limited) per contare le visite e capire quali pagine vengono lette. Parte <strong>solo se clicchi "Accetto"</strong> nel banner: prima non viene nemmeno caricato. Con il consenso, Google Analytics imposta i cookie <code>_ga</code> e <code>_ga_*</code> (durata fino a 2 anni). I dati sono conservati per 14 mesi, non sono usati per la pubblicità e possono essere trasferiti negli Stati Uniti, sotto l'EU-US Data Privacy Framework. Dettagli: <a href="https://policies.google.com/privacy?hl=it" rel="noopener">informativa di Google</a>.</p>
+    <p>La tua scelta (accetto o no) resta salvata nel tuo browser (localStorage, chiave <code>consenso-analytics</code>), così il banner non ricompare a ogni pagina. Puoi cambiarla quando vuoi: <a href="#" onclick="return window.mostraBannerCookie?mostraBannerCookie():false">riapri il banner dei cookie</a>, oppure usa il link "Cookie" in fondo a ogni pagina.</p>
+
+    <h2>Drumkit gratuito</h2>
+    <p>Per scaricare il drumkit ti chiedo nome (o alias) e email, con il tuo consenso esplicito. Li uso per mandarti il link e, ogni tanto, novità dallo studio. Il modulo è gestito da Brevo (Sendinblue SAS, Francia), che conserva i dati in Unione Europea. Restano finché non ti cancelli: c'è il link in fondo a ogni email, oppure scrivimi. Dettagli: <a href="https://www.brevo.com/it/legal/privacypolicy/" rel="noopener">informativa di Brevo</a>.</p>
+
+    <h2>Contatti</h2>
+    <p>Se mi scrivi per email, WhatsApp o Telegram, uso i tuoi dati solo per risponderti e, se lavoriamo insieme, per il servizio richiesto e la fatturazione. WhatsApp (Meta) e Telegram hanno le loro informative.</p>
+
+    <h2>Contenuti di altri servizi</h2>
+    <p>Il player della playlist Spotify (Spotify AB, Svezia) si carica <strong>solo se lo avvii tu</strong>: da quel momento Spotify può impostare i suoi cookie. I link verso altri siti (Instagram, YouTube, Spotify, i produttori citati nelle dritte) portano fuori da qui, dove valgono le loro informative.</p>
+
+    <h2>I tuoi diritti</h2>
+    <p>Puoi chiedere in qualsiasi momento di vedere, correggere o cancellare i tuoi dati, limitarne l'uso, opporti al trattamento, riceverli in un formato leggibile e ritirare il consenso (articoli 15-22 del Regolamento europeo 2016/679, il GDPR). Basta scrivere a <a href="mailto:{{ sito.email }}">{{ sito.email }}</a>. Se pensi che i tuoi dati siano trattati male puoi rivolgerti al <a href="https://www.garanteprivacy.it/" rel="noopener">Garante per la protezione dei dati personali</a>.</p>
+  </div>
+</section>
