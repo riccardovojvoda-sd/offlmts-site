@@ -293,6 +293,9 @@ html.chiaro{
   color-scheme:light;
 }
 html.chiaro .marchio-logo{filter:brightness(0)}
+/* Barra mobile chiara: la piastrella "OFF" diventa carta con la scritta nera */
+.menu-home .off-carta,html.chiaro .menu-home .off-scuro{display:none!important}
+html.chiaro .menu-home .off-carta{display:block!important}
 html.chiaro .bottone:not(.vuoto),html.chiaro .menu-cta,html.chiaro .salta,html.chiaro .post-bozza{background:#D4964B;border-color:#D4964B;color:#0B0A09!important}
 html.chiaro .bottone:not(.vuoto):hover,html.chiaro .menu-cta:hover{background:#C4863C;border-color:#C4863C}
 html.chiaro .bottone.vuoto{color:var(--testo);border-color:rgba(28,24,20,.4)}

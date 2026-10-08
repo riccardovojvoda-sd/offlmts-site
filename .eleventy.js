@@ -12,6 +12,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets/font": "assets/font" });
   eleventyConfig.addPassthroughCopy({ "src/assets/js": "assets/js" });
   eleventyConfig.addPassthroughCopy({ "src/assets/img/logo-offlmts.png": "assets/img/logo-offlmts.png" });
+  eleventyConfig.addPassthroughCopy({ "src/assets/img/icona-off-carta.png": "assets/img/icona-off-carta.png" });
   // Immagini dentro i post (prodotti, screenshot): copiate tali e quali, sono già piccole
   eleventyConfig.addPassthroughCopy({ "src/assets/img/dritte": "assets/img/dritte" });
   eleventyConfig.addPassthroughCopy({ "src/assets/file": "file" });
