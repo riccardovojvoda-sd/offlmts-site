@@ -14,7 +14,8 @@ Stessa ricetta di `sounddesignrv-site`, una lingua sola (italiano).
 
 - `src/index.njk`, `servizi.njk`, `prepara-il-materiale.njk`, `dritte.njk`, `chi-sono.njk`, `contatti.njk`: le pagine.
 - `src/dritte/*.html`: i post del blog "Dritte" (HTML pulito ricavato dal vecchio sito Squarespace, frontmatter con titolo, data, descrizione, copertina, tag).
-- `src/_data/sito.json`: nome, contatti, indirizzo, profili social, link di trasferimento file.
+- `src/_data/sito.json`: nome, contatti, indirizzo, profili social, link di trasferimento file, `ga4` (ID di Google Analytics).
+- Google Analytics: account "OFFLMTS Recording Studio" sull'account Google dello studio (offlmtsrecordingstudio@gmail.com), proprietà `offlmts.com` (558024955), ID `G-KEK9FJ30P3`, conservazione dati 14 mesi, condivisione dati con Google spenta (solo assistenza tecnica). Parte solo dopo "Accetto" nel banner. Per provarlo NON usare Brave (gli Shields bloccano GA) né un browser headless con user agent di default (filtrato come bot).
 - `src/_data/instagram.json`: i post Instagram mostrati nella strip della home (`url`, `copertina` in `src/assets/img/instagram/`, `didascalia`). Vuoto = la sezione non compare. Si aggiorna a mano quando Riccardo pubblica un post.
 - `src/_data/reindirizzi.json`: vecchi URL Squarespace (`/about`, `/tariffe`, `/cart`, `/contact`) che rimandano alle pagine nuove, e indirizzi corti da usare sui social (es. `/distrokid` per la dritta DistroKid).
 - `src/privacy.njk` e `src/en/privacy.njk`: informativa privacy e cookie (hosting GitHub Pages, Google Analytics solo col consenso, modulo drumkit Brevo, contatti, player Spotify). Linkata dal piè e dal banner cookie. Se si aggiunge un servizio che tratta dati, aggiornarla.
