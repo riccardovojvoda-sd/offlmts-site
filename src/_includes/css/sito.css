@@ -1,5 +1,5 @@
 /* offlmts.com: palette "oro, nero e verde cabina" (proposta B, scelta il 15/09/2026).
-   Titoli Space Mono 700 maiuscolo, testo IBM Plex Sans. Sito scuro, un tema solo. */
+   Titoli Space Mono 700 maiuscolo, testo IBM Plex Sans. Scuro di base, tema chiaro "Carta" opzionale (in fondo al file). */
 @font-face{font-family:"Space Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/font/space-mono-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:"Space Mono";font-style:normal;font-weight:700;font-display:swap;src:url(/assets/font/space-mono-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:"Space Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/font/space-mono-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
@@ -283,3 +283,40 @@ section{padding-block:clamp(2.5rem,6vw,4.5rem)}
 .filtri-azzera{font:inherit;background:none;border:0;padding:0;color:var(--verde-chiaro);cursor:pointer;text-decoration:underline;text-underline-offset:.2em}
 .filtri-vuoto{margin:0;color:var(--muto)}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* Tema chiaro "Carta" (scelto l'8/10/2026): opzionale, il sito parte sempre scuro.
+   Classe "chiaro" su <html>, messa dallo script in testa a base.njk solo se il visitatore l'ha scelta col pulsante (localStorage "tema").
+   Per il testo oro e verde più scuri (#8F5718 e #1D6B60, sopra 4.5:1 su tutti i fondi); i riempimenti restano nell'oro del logo. Logo in nero. */
+html.chiaro{
+  --fondo:#F5EFE4;--sup:#ECE3D3;--sup2:#FBF8F2;--testo:#1C1814;--muto:#6A5F51;--linea:#D9CDB9;
+  --oro:#8F5718;--oro-chiaro:#B06F25;--verde:#23766A;--verde-chiaro:#1D6B60;
+  color-scheme:light;
+}
+html.chiaro .marchio-logo{filter:brightness(0)}
+html.chiaro .bottone:not(.vuoto),html.chiaro .menu-cta,html.chiaro .salta,html.chiaro .post-bozza{background:#D4964B;border-color:#D4964B;color:#0B0A09!important}
+html.chiaro .bottone:not(.vuoto):hover,html.chiaro .menu-cta:hover{background:#C4863C;border-color:#C4863C}
+html.chiaro .bottone.vuoto{color:var(--testo);border-color:rgba(28,24,20,.4)}
+html.chiaro .bottone.vuoto:hover{background:rgba(28,24,20,.06);border-color:var(--testo)}
+html.chiaro .ascolta-avvia:hover{background:var(--sup)}
+html.chiaro .scarica input::placeholder{color:rgba(106,95,81,.7)}
+html.chiaro .cookie-banner{box-shadow:0 1rem 2.5rem rgba(28,24,20,.18)}
+html.chiaro .in-alto,html.chiaro .interruttore-tema{box-shadow:0 2px 10px rgba(28,24,20,.12)}
+/* Hero: sul desktop il testo sta sopra la foto e resta bianco sulla sfumatura scura */
+html.chiaro .eroe .bottone.vuoto{color:#fff;border-color:rgba(255,255,255,.6)}
+html.chiaro .eroe .bottone.vuoto:hover{background:rgba(255,255,255,.1)}
+html.chiaro .eroe .occhiello{color:#E0AF73}
+@media (max-width:48em){
+  html.chiaro .eroe::after{background:linear-gradient(180deg,transparent 55%,var(--fondo) 100%)}
+  html.chiaro .eroe h1{color:var(--testo)}
+  html.chiaro .eroe .occhiello{color:var(--oro)}
+  html.chiaro .eroe-generi{color:var(--muto)}
+  html.chiaro .eroe .bottone.vuoto{color:var(--testo);border-color:rgba(28,24,20,.4)}
+  html.chiaro .menu{background:rgba(245,239,228,.94);border-top-color:#D4964B;box-shadow:0 -.5rem 1.5rem rgba(28,24,20,.12)}
+}
+
+/* Pulsante tema (sole nello scuro, luna nel chiaro): stesso stile del torna-su, sopra di lui, su tutte le pagine (assets/js/tema.js) */
+.interruttore-tema{position:fixed;right:max(1rem,env(safe-area-inset-right,0px));bottom:calc(max(1rem,env(safe-area-inset-bottom,0px)) + 3.4rem);z-index:30;width:2.75rem;height:2.75rem;display:flex;align-items:center;justify-content:center;padding:0;background:var(--sup2);color:var(--oro);border:1px solid var(--linea);border-radius:50%;cursor:pointer}
+.interruttore-tema:hover{border-color:var(--oro)}
+.interruttore-tema .icona-luna,html.chiaro .interruttore-tema .icona-sole{display:none}
+html.chiaro .interruttore-tema .icona-luna{display:block}
+@media (max-width:48em){.interruttore-tema{bottom:calc(var(--barra-h) + .75rem + 3.4rem)}}
