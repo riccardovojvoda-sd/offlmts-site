@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Carosello DistroKid</title>
+<style>
+@font-face{font-family:"Space Mono";font-weight:400;src:url(../../src/assets/font/space-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Space Mono";font-weight:700;src:url(../../src/assets/font/space-mono-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-weight:400;src:url(../../src/assets/font/ibm-plex-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-weight:600;src:url(../../src/assets/font/ibm-plex-sans-latin-600-normal.woff2) format("woff2")}
+:root{--fondo:#0B0A09;--sup:#141210;--sup2:#1D1A16;--testo:#EFE8DA;--muto:#A89F90;--linea:#2B2620;--oro:#D4964B;--verde-chiaro:#5CBFAF;
+  --mono:"Space Mono",monospace;--sans:"IBM Plex Sans",sans-serif}
+html,body{margin:0;background:#000}
+.slide{width:1080px;height:1350px;position:relative;overflow:hidden;background:var(--fondo);color:var(--testo);font-family:var(--sans);box-sizing:border-box;display:none}
+.slide.attiva{display:block}
+/* tutte visibili in anteprima (senza #n) */
+body.tutte .slide{display:block;margin:0 auto 40px}
+
+.pad{position:absolute;inset:96px 96px 140px 96px;display:flex;flex-direction:column;justify-content:center}
+.occhiello{font-family:var(--mono);font-size:32px;letter-spacing:.16em;text-transform:uppercase;color:var(--oro);margin:0 0 36px}
+.num{font-family:var(--mono);font-weight:700;font-size:150px;line-height:1;color:var(--oro);margin:0 0 30px}
+h1,h2{font-family:var(--mono);font-weight:700;text-transform:uppercase;letter-spacing:.01em;line-height:1.08;margin:0;text-wrap:balance}
+h1{font-size:96px}
+h2{font-size:80px;margin-bottom:56px}
+p{font-size:54px;line-height:1.35;margin:0 0 34px;color:var(--testo)}
+p.muto{color:var(--muto)}
+strong{color:var(--oro);font-weight:600}
+.piede{position:absolute;left:96px;right:96px;bottom:56px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:var(--muto)}
+.piede img{height:46px}
+.scorri{color:var(--oro)}
+
+/* COPERTINA A: screenshot a tutto campo, velo scuro, titolo sopra */
+.cA .sfondo{position:absolute;inset:0;background:url(../../src/assets/img/dritte/distrokid-iscrizione.jpg) 22% 50%/auto 100% no-repeat;filter:grayscale(.3) blur(10px);transform:scale(1.08)}
+.cA .velo{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,10,9,.55) 0%,rgba(11,10,9,.80) 45%,rgba(11,10,9,.97) 75%)}
+.cA .pad{justify-content:flex-end;padding-bottom:40px}
+.cA h1{font-size:104px}
+
+/* COPERTINA B: fondo scuro, titolo grande, screenshot come cartolina piatta in basso */
+.cB .pad{justify-content:flex-start;inset:96px 96px 600px 96px}
+.cB h1{font-size:100px}
+.cB .cartolina{position:absolute;left:96px;right:-200px;bottom:150px;height:440px;border:3px solid var(--oro);border-radius:6px;background:url(../../src/assets/img/dritte/distrokid-iscrizione.jpg) 0 0/cover no-repeat}
+
+/* COPERTINA C: solo tipografia, oro su nero */
+.cC .pad{justify-content:center}
+.cC h1{font-size:120px}
+.cC h1 span{color:var(--oro)}
+.cC .sotto{margin-top:48px;font-family:var(--mono);font-size:34px;letter-spacing:.06em;color:var(--muto);text-transform:uppercase}
+
+/* CTA finale */
+.cta .pad{justify-content:center}
+.cta h2{font-size:80px}
+.cta .url{font-family:var(--mono);font-weight:700;font-size:52px;color:var(--fondo);background:var(--oro);padding:18px 28px;border-radius:4px;align-self:flex-start;margin:20px 0 48px}
+.cta .bio{font-family:var(--mono);font-size:38px;letter-spacing:.08em;text-transform:uppercase;color:var(--verde-chiaro)}
+</style>
+</head>
+<body>
+
+<!-- 1A -->
+<section class="slide cA" id="s1a"><div class="sfondo"></div><div class="velo"></div>
+ <div class="pad"><p class="occhiello">Dritte · OFFLMTS</p><h1>Pubblica il tuo singolo con DistroKid</h1></div>
+ <div class="piede"><img src="../../src/assets/img/logo-offlmts.png" alt=""><span class="scorri">Scorri →</span></div></section>
+
+<!-- 1B -->
+<section class="slide cB" id="s1b">
+ <div class="pad"><p class="occhiello">Dritte · OFFLMTS</p><h1>Pubblica il tuo singolo con DistroKid</h1></div>
+ <div class="cartolina"></div>
+ <div class="piede"><img src="../../src/assets/img/logo-offlmts.png" alt=""><span class="scorri">Scorri →</span></div></section>
+
+<!-- 1C -->
+<section class="slide cC" id="s1c">
+ <div class="pad"><p class="occhiello">Dritte · OFFLMTS</p><h1>Pubblica il tuo singolo <span>con DistroKid</span></h1><p class="sotto">6 cose da sapere prima di caricare</p></div>
+ <div class="piede"><img src="../../src/assets/img/logo-offlmts.png" alt=""><span class="scorri">Scorri →</span></div></section>
+
+<section class="slide" id="s2"><div class="pad">
+ <div class="num">01</div><h2>Scegli il piano giusto</h2>
+ <p>Col piano base il brano esce appena approvato.</p>
+ <p>Per scegliere tu la <strong>data d'uscita</strong> serve almeno <strong>Musician Plus</strong>.</p></div>
+ <div class="piede"><img src="../../src/assets/img/logo-offlmts.png" alt=""><span>2/8</span></div></section>
+
+<section class="slide" id="s3"><div class="pad">
+ <div class="num">02</div><h2>Carica in anticipo</h2>
+ <p>Almeno <strong>2 settimane</strong> prima dell'uscita. Meglio un mese.</p>
+ <p>Così puoi proporre il brano alle <strong>playlist di Spotify</strong> con "Pitch a song".</p></div>
+ <div class="piede"><img src="../../src/assets/img/logo-offlmts.png" alt=""><span>3/8</span></div></section>
+
+<section class="slide" id="s4"><div class="pad">
+ <div class="num">03</div><h2>Copertina a prova di rifiuto</h2>
+ <p>Quadrata, <strong>3000x3000</strong>, colori RGB.</p>
+ <p>Niente link, QR code, loghi, prezzi o foto stock: le piattaforme la rifiutano.</p></div>
+ <div class="piede"><img src="../../src/assets/img/logo-offlmts.png" alt=""><span>4/8</span></div></section>
+
+<section class="slide" id="s5"><div class="pad">
+ <div class="num">04</div><h2>Carica il master giusto</h2>
+ <p>Il file del <strong>master</strong>, idealmente <strong>WAV a 24 bit</strong>.</p>
+ <p class="muto">Non il mix, non un mp3.</p></div>
+ <div class="piede"><img src="../../src/assets/img/logo-offlmts.png" alt=""><span>5/8</span></div></section>
+
+<section class="slide" id="s6"><div class="pad">
+ <div class="num">05</div><h2>Il testo su Spotify</h2>
+ <p>Su Spotify i testi arrivano da <strong>Musixmatch</strong>.</p>
+ <p>Sincronizzalo e, dopo l'uscita, controlla che compaia.</p></div>
+ <div class="piede"><img src="../../src/assets/img/logo-offlmts.png" alt=""><span>6/8</span></div></section>
+
+<section class="slide" id="s7"><div class="pad">
+ <div class="num">06</div><h2>Dopo l'uscita</h2>
+ <p>Dividi le <strong>royalties</strong> con chi ha collaborato, completa i crediti.</p>
+ <p>Condividi il link <strong>HyperFollow</strong>: una pagina con tutte le piattaforme.</p></div>
+ <div class="piede"><img src="../../src/assets/img/logo-offlmts.png" alt=""><span>7/8</span></div></section>
+
+<section class="slide cta" id="s8"><div class="pad">
+ <p class="occhiello">La guida completa</p>
+ <h2>Tutti i passaggi, uno per uno, sono sul sito</h2>
+ <div class="url">offlmts.com/distrokid</div>
+ <p class="bio">→ link in bio</p></div>
+ <div class="piede"><img src="../../src/assets/img/logo-offlmts.png" alt=""><span>Salva il post</span></div></section>
+
+<script>
+const h=location.hash.slice(1);
+if(h){document.getElementById(h).classList.add('attiva')}else{document.body.classList.add('tutte')}
+</script>
+</body>
+</html>
