@@ -30,8 +30,10 @@ strong{color:var(--oro);font-weight:600}
 .scorri{color:var(--oro)}
 
 /* COPERTINA A: screenshot a tutto campo, velo scuro, titolo sopra */
-.cA .sfondo{position:absolute;inset:0;background:url(../../src/assets/img/dritte/distrokid-iscrizione.jpg) 22% 50%/auto 100% no-repeat;filter:grayscale(.3) blur(10px);transform:scale(1.08)}
-.cA .velo{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,10,9,.55) 0%,rgba(11,10,9,.80) 45%,rgba(11,10,9,.97) 75%)}
+.cA .sfondo,.cA .sfocato{position:absolute;inset:0;background:url(../../src/assets/img/dritte/distrokid-iscrizione.jpg) 22% 50%/auto 100% no-repeat}
+.cA .sfondo{filter:grayscale(.15)}
+.cA .sfocato{filter:grayscale(.3) blur(12px);transform:scale(1.06);-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0.350) 20.0%,rgba(0,0,0,0.360) 24.8%,rgba(0,0,0,0.417) 29.5%,rgba(0,0,0,0.529) 34.2%,rgba(0,0,0,0.675) 39.0%,rgba(0,0,0,0.821) 43.8%,rgba(0,0,0,0.933) 48.5%,rgba(0,0,0,0.990) 53.2%,rgba(0,0,0,1.000) 58.0%,#000 100%);mask-image:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0.350) 20.0%,rgba(0,0,0,0.360) 24.8%,rgba(0,0,0,0.417) 29.5%,rgba(0,0,0,0.529) 34.2%,rgba(0,0,0,0.675) 39.0%,rgba(0,0,0,0.821) 43.8%,rgba(0,0,0,0.933) 48.5%,rgba(0,0,0,0.990) 53.2%,rgba(0,0,0,1.000) 58.0%,#000 100%)}
+.cA .velo{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,10,9,.38) 0%,rgba(11,10,9,0.380) 22.0%,rgba(11,10,9,0.389) 28.0%,rgba(11,10,9,0.441) 34.0%,rgba(11,10,9,0.542) 40.0%,rgba(11,10,9,0.675) 46.0%,rgba(11,10,9,0.808) 52.0%,rgba(11,10,9,0.909) 58.0%,rgba(11,10,9,0.961) 64.0%,rgba(11,10,9,0.970) 70.0%,rgba(11,10,9,.97) 100%)}
 .cA .pad{justify-content:flex-end;padding-bottom:40px}
 .cA h1{font-size:104px}
 
@@ -56,7 +58,7 @@ strong{color:var(--oro);font-weight:600}
 <body>
 
 <!-- 1A -->
-<section class="slide cA" id="s1a"><div class="sfondo"></div><div class="velo"></div>
+<section class="slide cA" id="s1a"><div class="sfondo"></div><div class="sfocato"></div><div class="velo"></div>
  <div class="pad"><p class="occhiello">Dritte · OFFLMTS</p><h1>Pubblica il tuo singolo con DistroKid</h1></div>
  <div class="piede"><img src="../../src/assets/img/logo-offlmts.png" alt=""><span class="scorri">Scorri →</span></div></section>
 
