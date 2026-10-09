@@ -15,6 +15,12 @@ og_type: article
       {%- if coppia %}<p class="post-lingua"><a href="{{ coppia }}" hreflang="{{ "it" if lingua == "en" else "en" }}">{{ "Versione italiana" if lingua == "en" else "English version" }}</a></p>{% endif %}
     </div>
   </header>
+  {#- Hero: la copertina sotto il titolo, salvo dove il testo la mostra già (sample, drumkit) -#}
+  {%- if copertina and (content | string).indexOf(copertina) == -1 %}
+  <figure class="contenitore post-copertina">
+    {% img "dritte/" + copertina, copertinaAlt or "", "(min-width: 50rem) 46rem, 100vw", "eager" %}
+  </figure>
+  {%- endif %}
   <div class="contenitore post-corpo">
     {{ content | safe }}
   </div>
