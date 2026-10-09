@@ -2,7 +2,7 @@
 // Sorgenti in src/, output in _site/. Immagini responsive con @11ty/eleventy-img.
 // Stessa ricetta di sounddesignrv-site, senza le lingue.
 const path = require("path");
-const Image = require("@11ty/eleventy-img");
+const Image = require("@11ty/eleventy-img").default; // dalla 7 è un modulo ES: la funzione sta in .default
 const { minify } = require("html-minifier-terser");
 const { pubblicato } = require("./lib/articoli");
 
