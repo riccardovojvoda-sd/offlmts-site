@@ -57,7 +57,7 @@ code{font-family:var(--mono);font-size:.88em;background:var(--sup2);padding:.1em
 /* testata */
 .testata{display:flex;align-items:center;justify-content:space-between;gap:1rem 2rem;flex-wrap:wrap;padding:1rem var(--gutter);border-bottom:1px solid var(--linea);background:var(--fondo);position:sticky;top:0;z-index:20}
 .marchio{display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;text-decoration:none;color:var(--testo)}
-.marchio-logo{width:auto;height:46px}
+.marchio-logo{width:auto;height:55px}
 .menu{display:flex;gap:1.4rem;align-items:center;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;max-width:100%;padding-bottom:2px}
 .menu::-webkit-scrollbar{display:none}
 .menu a{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--testo);text-decoration:none;white-space:nowrap;padding:.3em 0;border-bottom:2px solid transparent}
@@ -71,7 +71,7 @@ code{font-family:var(--mono);font-size:.88em;background:var(--sup2);padding:.1em
    --barra-h = altezza della barra: serve al pie' (spazio sotto) e al torna-in-alto (che sale sopra la barra). */
 @media (max-width:48em){
   :root{--barra-h:calc(3.1rem + 3px + env(safe-area-inset-bottom,0px))}
-  .testata{position:static;padding-block:.75rem;border-bottom:0}.marchio-logo{height:34px}
+  .testata{position:static;padding-block:.75rem;border-bottom:0}.marchio-logo{height:41px}
   .menu{position:fixed;left:0;right:0;bottom:0;z-index:20;width:100%;justify-content:space-between;gap:.4rem;overflow:visible;padding:.55rem var(--gutter) calc(.55rem + env(safe-area-inset-bottom,0px));background:rgba(11,10,9,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:3px solid var(--oro);box-shadow:0 -.5rem 1.5rem rgba(0,0,0,.45)}
   .menu a{font-size:.62rem;letter-spacing:.06em;padding:.35em 0}
   .menu-cta{padding:.5em .6em!important}
@@ -322,4 +322,5 @@ html.chiaro .eroe .occhiello{color:#E0AF73}
 .interruttore-tema:hover{border-color:var(--oro)}
 .interruttore-tema .icona-luna,html.chiaro .interruttore-tema .icona-sole{display:none}
 html.chiaro .interruttore-tema .icona-luna{display:block}
-@media (max-width:48em){.interruttore-tema{bottom:calc(var(--barra-h) + .75rem + 3.4rem)}}
+/* Su mobile il sole/luna sta in testata, a destra del logo, e scorre via con lei: in basso resta solo il torna-in-alto */
+@media (max-width:48em){.interruttore-tema{position:absolute;bottom:auto;top:calc(.75rem + (41px - 2.75rem) / 2);right:var(--gutter)}}
