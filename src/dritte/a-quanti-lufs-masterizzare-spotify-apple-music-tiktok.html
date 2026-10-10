@@ -1,0 +1,50 @@
+---
+titolo: "A quanti LUFS masterizzare per Spotify, Apple Music e TikTok"
+date: 2026-11-05T17:00:00Z
+bozza: true
+copertina: lufs-master-misuratore-console.jpg
+descrizione: "Spotify, YouTube e Apple Music normalizzano il volume, ma -14 LUFS è il livello di riproduzione, non quello del master. Cosa fanno le piattaforme, a che volume escono i master rap e trap, true peak, confronto con i riferimenti e quando serve un master diverso."
+tags: ["LUFS", "loudness", "master", "mastering", "masterizzare", "Spotify", "Apple Music", "YouTube", "TikTok", "Instagram", "normalizzazione", "true peak", "-14 LUFS", "vinile", "rap", "trap"]
+lingua: it
+per_chi: ["producer", "rapper-cantante"]
+argomento: ["mix-master"]
+---
+
+<p>Spotify, YouTube e Apple Music abbassano il volume dei brani più forti e li allineano a un livello di riferimento: è la normalizzazione. Per questo in giro si legge che bisogna masterizzare a -14 LUFS. Non è così: -14 è il livello a cui Spotify riproduce la musica, non quello a cui va fatto il master.</p>
+
+<h3>LUFS e true peak in due righe</h3>
+<p>I <strong>LUFS</strong> misurano il volume percepito, pesato come lo sente l'orecchio. Per le piattaforme conta il <strong>LUFS integrato</strong>, cioè la media su tutto il brano. Il <strong>true peak</strong> (dBTP) è il picco reale del segnale, compreso quello che può formarsi tra un campione e l'altro quando il file viene convertito.</p>
+
+<h3>Cosa fanno le piattaforme</h3>
+<ul>
+<li><strong>Spotify</strong> normalizza a -14 LUFS con l'impostazione Normale; con Alto e Basso, riservate agli utenti Premium, a -11 e -19. I brani più forti vengono abbassati. Quelli più bassi vengono alzati solo finché c'è spazio prima dei picchi: un master a -20 LUFS con i picchi a -5 sale solo fino a -16. Il web player e alcuni dispositivi, come TV e casse, non normalizzano.</li>
+<li><strong>Apple Music</strong> usa Sound Check, attivo di default sui dispositivi recenti, con riferimento a -16 LUFS: è il valore raccomandato dall'AES (Audio Engineering Society) per la musica in streaming.</li>
+<li><strong>YouTube</strong> abbassa intorno a -14 LUFS i video più forti e non alza quelli più bassi.</li>
+<li><strong>TikTok e Instagram</strong> non pubblicano un livello di riferimento per il volume.</li>
+</ul>
+
+<h3>Masterizzare a -14?</h3>
+<p>No. Un master a -14 LUFS non perde volume su Spotify, ma nel rap, nella trap e nel pop suona troppo dinamico, poco saturo e senza carattere accanto ai brani con cui finisce in playlist. I master commerciali di questi generi stanno di solito tra -9 e -6 LUFS integrati. Su Spotify vengono abbassati a -14, ma la densità e la saturazione che il master ha dato al suono restano anche dopo l'abbassamento.</p>
+<p>Il numero giusto non si sceglie prima. Si masterizza a orecchio, puntando al volume medio dei brani del genere, e si spinge finché il pezzo suona bene e regge. Se il suono comincia a rovinarsi (transienti schiacciati, distorsione, voce che si impasta con il beat) ci si ferma, anche se il numero è più basso di quello dei riferimenti. Per lavorare a orecchio serve un ascolto affidabile: monitor e stanza calibrati, e un volume di ascolto che resta sempre lo stesso.</p>
+<p>Il master può essere l'ultimo passaggio della stessa sessione del mix o un lavoro a parte: la differenza tra le due fasi è spiegata in <a href="/dritte/mix-e-master-che-differenza-ce/">Mix e master: che differenza c'è</a>.</p>
+
+<h3>Il confronto con i riferimenti</h3>
+<p>Un plugin di confronto A/B (per esempio Metric AB di ADPTR Audio) carica i brani di riferimento accanto al tuo master e passa dall'uno all'altro all'istante. Si usa in due modi:</p>
+<ul>
+<li><strong>senza pareggiare il volume</strong>, per vedere quanto manca al tuo master per arrivare alla loudness dei riferimenti;</li>
+<li><strong>a volume pareggiato</strong>, per confrontare il bilanciamento tonale: bassi, medi, alti, presenza della voce.</li>
+</ul>
+<p>Il secondo modo serve perché l'orecchio si fa ingannare dal volume: a parità di tutto il resto, il brano più forte sembra migliore. A volume più alto si percepiscono più bassi e più alti, come descrivono le curve isofoniche (studiate per primi da Fletcher e Munson, oggi nella norma ISO 226). Il confronto sul suono, quindi, si fa allo stesso volume.</p>
+
+<h3>True peak e conversione</h3>
+<p>Spotify consiglia di tenere il true peak sotto -1 dBTP, e sotto -2 per i master più forti di -14 LUFS, perché la conversione nei formati compressi (Ogg Vorbis, AAC) può creare picchi sopra lo zero. Nella diffusione audiovisiva il tetto in true peak è un requisito delle norme: la raccomandazione EBU R 128 per la TV fissa il massimo a -1 dBTP.</p>
+<p>Nella musica molti mastering engineer lavorano in un altro modo: limiter con il tetto appena sotto lo zero digitale, per esempio a -0,03 dBFS, senza modalità true peak. Il motivo è che l'eventuale clipping della conversione, nella grande maggioranza dei casi, non si sente, e gli algoritmi di conversione migliorano nel tempo. Un limiter in true peak che lavora sui transienti, invece, cambia il suono del master, e una volta distribuito il brano resta così.</p>
+
+<h3>Un master per tutto, tranne il vinile</h3>
+<p>Il master fatto per la discografia va bene per Spotify, Apple Music, YouTube, TikTok e Instagram: non serve una versione per ogni piattaforma. Anche i distributori, come DistroKid, non chiedono un livello di volume.</p>
+<p>L'eccezione è la stampa su vinile. Il solco non regge bassi larghi nell'immagine stereo, che fanno muovere la puntina in verticale fino a farla saltare, e soffre una dinamica troppo compressa. Per il vinile si prepara un master apposta, più dinamico e con i bassi vicini al mono, e le ultime scelte spettano a chi incide la lacca.</p>
+
+<p>Se vuoi sentire il tuo pezzo masterizzato accanto ai riferimenti del genere, mandami un ascolto su <a href="https://t.me/{{ sito.telegram }}" rel="noopener">Telegram</a> o <a href="https://wa.me/{{ sito.whatsapp }}" rel="noopener">WhatsApp</a>.</p>
+
+<h3>Fonti</h3>
+<p class="fonti">Spotify for Artists, "Loudness normalization" (support.spotify.com) · AES, TD1008, raccomandazioni sulla loudness dello streaming audio (aes.org) · Ian Shepherd, sul passaggio di Apple Sound Check ai LUFS (meterplugs.com) · Ian Shepherd, sulla normalizzazione di YouTube (productionadvice.co.uk) · EBU, Raccomandazione R 128 (tech.ebu.ch) · ISO 226, curve isofoniche (iso.org) · Sound on Sound, "How does mastering differ for vinyl and digital releases?" (soundonsound.com).</p>
