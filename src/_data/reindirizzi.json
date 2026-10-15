@@ -25,10 +25,50 @@
   },
   {
     "da": "/distrokid/",
-    "a": "/dritte/pubblicare-singolo-su-distrokid/"
+    "a": "/dritte/pubblicare-singolo-su-distrokid/?utm_source=instagram-facebook&utm_medium=social&utm_campaign=dritta-distrokid"
   },
   {
     "da": "/playlist/",
-    "a": "/dritte/come-entrare-nelle-playlist-di-spotify/"
+    "a": "/dritte/come-entrare-nelle-playlist-di-spotify/?utm_source=instagram-facebook&utm_medium=social&utm_campaign=dritta-playlist"
+  },
+  {
+    "da": "/home-studio/",
+    "a": "/dritte/cosa-serve-per-produrre-beat-e-registrare-le-voci-in-casa-con-un-budget-ridotto-ma-con-buona-qualit/?utm_source=instagram-facebook&utm_medium=social&utm_campaign=dritta-home-studio"
+  },
+  {
+    "da": "/tracce-mix/",
+    "a": "/dritte/come-esportare-le-tracce-audio-per-il-mix/?utm_source=instagram-facebook&utm_medium=social&utm_campaign=dritta-tracce-mix"
+  },
+  {
+    "da": "/drumkit/",
+    "a": "/dritte/drumkit-gratis-offlmts-vol1/?utm_source=instagram-facebook&utm_medium=social&utm_campaign=dritta-drumkit"
+  },
+  {
+    "da": "/sample/",
+    "a": "/dritte/come-liberare-un-sample/?utm_source=instagram-facebook&utm_medium=social&utm_campaign=dritta-sample"
+  },
+  {
+    "da": "/tracce-daw/",
+    "a": "/dritte/esportare-le-tracce-separate-in-ogni-daw/?utm_source=instagram-facebook&utm_medium=social&utm_campaign=dritta-tracce-daw"
+  },
+  {
+    "da": "/voce-in-casa/",
+    "a": "/dritte/come-registrare-la-voce-in-casa/?utm_source=instagram-facebook&utm_medium=social&utm_campaign=dritta-voce-in-casa"
+  },
+  {
+    "da": "/template-voce/",
+    "a": "/dritte/template-di-registrazione-voce/?utm_source=instagram-facebook&utm_medium=social&utm_campaign=dritta-template-voce"
+  },
+  {
+    "da": "/base-ai/",
+    "a": "/dritte/testo-e-base-fatta-con-l-ai-come-si-va-avanti/?utm_source=instagram-facebook&utm_medium=social&utm_campaign=dritta-base-ai"
+  },
+  {
+    "da": "/mix-master/",
+    "a": "/dritte/mix-e-master-che-differenza-ce/?utm_source=instagram-facebook&utm_medium=social&utm_campaign=dritta-mix-master"
+  },
+  {
+    "da": "/struttura/",
+    "a": "/dritte/struttura-di-una-canzone/?utm_source=instagram-facebook&utm_medium=social&utm_campaign=dritta-struttura"
   }
 ]
