@@ -295,7 +295,10 @@ section{padding-block:clamp(2.5rem,6vw,4.5rem)}
 .colonna-dritte{display:flex;flex-direction:column;gap:1rem;font-size:.92rem;max-width:30rem}
 @media (min-width:64em){
   .post-griglia{grid-template-columns:minmax(0,44rem) 22rem;justify-content:space-between;align-items:start;gap:3rem}
-  .colonna-dritte{position:sticky;top:7.5rem;max-height:calc(100vh - 9rem);overflow-y:auto;scrollbar-width:thin}
+  /* niente scorrimento interno: con un indice lungo il player finiva tagliato. Più alta dello schermo, la colonna
+     resta ferma in alto e a fine articolo scende con il testo fino a mostrarsi intera accanto ai tag */
+  .colonna-dritte{position:sticky;top:7.5rem}
+  .post-principale{min-height:100%}
 }
 .colonna-indice{display:none}
 @media (min-width:64em){.colonna-indice{display:block}}
