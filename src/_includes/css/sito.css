@@ -324,6 +324,13 @@ section{padding-block:clamp(2.5rem,6vw,4.5rem)}
 .colonna-ascolta .ascolta-player,.colonna-ascolta .ascolta-avvia{min-height:7rem}
 .colonna-ascolta .ascolta-avvia{padding:1rem;text-align:center}
 .colonna-ascolta .ascolta-avvia span{font-size:.7rem}
+/* Player minimo di Spotify (80 px): sotto i ~280 px di larghezza perde il tasto play, quindi caricato va da bordo a bordo
+   del riquadro. color-scheme light sull'iframe: con lo scuro della pagina il browser gli darebbe un fondo bianco agli angoli */
+/* Spotify sceglie l'impaginazione al caricamento: lo spazio del player è da bordo a bordo fin dall'inizio, il pulsante rientra */
+.colonna-ascolta{padding-bottom:0;overflow:hidden}
+.colonna-ascolta .ascolta-player{margin:0 -1.1rem;min-height:0}
+.colonna-ascolta .ascolta-avvia{width:calc(100% - 2.2rem);margin:0 1.1rem 1.15rem}
+.colonna-ascolta iframe{display:block;border-radius:0!important;color-scheme:light}
 .colonna-ascolta .ascolta-avvia small{font-size:.75rem}
 
 /* Tema chiaro "Carta" (scelto l'8/10/2026): opzionale, il sito parte sempre scuro.
