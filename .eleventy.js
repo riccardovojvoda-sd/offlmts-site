@@ -85,6 +85,28 @@ module.exports = function (eleventyConfig) {
     const x = d instanceof Date ? d : new Date(d);
     return x.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
   });
+  // Indice delle dritte (colonna a destra): i titoli dei paragrafi prendono un id e finiscono nell'elenco.
+  // Le dritte usano h3 (una h4): vale il livello più usato tra h2, h3 e h4. Fonti resta fuori.
+  const idDaTesto = (t) => t.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const livelloIndice = (html) => {
+    const conta = [2, 3, 4].map((n) => (String(html || "").match(new RegExp(`<h${n}[\\s>]`, "g")) || []).length);
+    const max = Math.max(...conta);
+    return max ? 2 + conta.indexOf(max) : 0;
+  };
+  const conAncore = (html) => {
+    const n = livelloIndice(html);
+    if (!n) return String(html || "");
+    return String(html).replace(new RegExp(`<h${n}(\\s[^>]*)?>([\\s\\S]*?)<\\/h${n}>`, "g"), (tag, attr = "", dentro) =>
+      /\sid=/.test(attr) ? tag : `<h${n}${attr} id="${idDaTesto(dentro.replace(/<[^>]+>/g, ""))}">${dentro}</h${n}>`);
+  };
+  eleventyConfig.addFilter("conAncore", conAncore);
+  eleventyConfig.addFilter("indiceTitoli", (html) => {
+    const n = livelloIndice(html);
+    if (!n) return [];
+    return [...conAncore(html).matchAll(new RegExp(`<h${n}[^>]*\\sid="([^"]+)"[^>]*>([\\s\\S]*?)<\\/h${n}>`, "g"))]
+      .map((m) => ({ id: m[1], testo: m[2].replace(/<[^>]+>/g, "").trim() }))
+      .filter((v) => !/^(fonti|sources)$/i.test(v.testo));
+  });
   eleventyConfig.addFilter("json", (v) => JSON.stringify(v));
   eleventyConfig.addFilter("correlati", require("./lib/correlati").correlati);
   eleventyConfig.addFilter("primi", (arr, n) => (arr || []).slice(0, n));

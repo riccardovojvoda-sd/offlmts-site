@@ -4,6 +4,16 @@
     Foto: ritaglio di trich/trich-2.jpg raddrizzato di 10 gradi, copiata così com'è (192 px). -#}
 {%- set en = lingua == "en" %}
 <aside class="colonna-dritte" aria-label="{{ "Author and contact" if en else "Autore e contatti" }}">
+  {%- if voci and voci.length >= 3 %}
+  <nav class="colonna-indice" aria-labelledby="indice-titolo" data-indice>
+    <p id="indice-titolo" class="occhiello">{{ "In this tip" if en else "In questa dritta" }}</p>
+    <ol>
+      {%- for v in voci %}
+      <li><a href="#{{ v.id }}">{{ v.testo }}</a></li>
+      {%- endfor %}
+    </ol>
+  </nav>
+  {%- endif %}
   <a class="colonna-autore" href="/chi-sono/">
     <img class="colonna-autore-foto" src="/assets/img/trich/trich-viso.jpg" alt="" width="96" height="96" loading="lazy" decoding="async">
     <span><small>{{ "Written by" if en else "Scritto da" }}</small> <strong>{{ sito.alias }}</strong> <small>{{ sito.titolare }}, {{ "engineer and producer at OFFLMTS" if en else "fonico e producer di OFFLMTS" }}</small></span>
@@ -17,7 +27,7 @@
   <div class="colonna-box colonna-ascolta">
     <p class="occhiello">{{ "Listen" if en else "Ascolta" }}</p>
     <p class="colonna-box-titolo">{{ "Tracks made in the studio" if en else "I pezzi usciti dallo studio" }}</p>
-    <div class="ascolta-player" data-embed="{{ sito.social.spotifyEmbed }}">
+    <div class="ascolta-player" data-embed="{{ sito.social.spotifyEmbed }}" data-altezza="152">
       <button type="button" class="ascolta-avvia">
         <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
         <span>{{ "Load the Spotify playlist" if en else "Carica la playlist Spotify" }}</span>

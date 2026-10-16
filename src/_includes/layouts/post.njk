@@ -24,7 +24,7 @@ og_type: article
   </figure>
   {%- endif %}
   <div class="post-corpo">
-    {{ content | safe }}
+    {{ content | conAncore | safe }}
   </div>
   {%- if tags.length > 1 %}
   <div class="post-tag">
@@ -35,6 +35,7 @@ og_type: article
   </div>
   {%- endif %}
   </div>
+  {%- set voci = content | indiceTitoli %}
   {% include "parti/colonna-dritte.njk" %}
   </div>
   {#- Da leggere anche: 3 dritte correlate per argomento e per chi, completate con le più recenti (lib/correlati.js) -#}
@@ -49,6 +50,7 @@ og_type: article
     {%- if lingua == "en" %}<a class="bottone vuoto" href="/en/tips/">All tips</a>{% else %}<a class="bottone vuoto" href="/dritte/">Tutte le Dritte</a>{% endif %}
   </div>
 </article>
+<script src="/assets/js/indice.js" defer></script>
 <script type="application/ld+json">{{ {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
