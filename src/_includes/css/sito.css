@@ -288,13 +288,13 @@ section{padding-block:clamp(2.5rem,6vw,4.5rem)}
 .filtri-vuoto{margin:0;color:var(--muto)}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 
-/* Colonna a destra delle dritte (16/10/2026): il testo si allinea a sinistra col titolo e a destra ci sono
+/* Colonna a destra delle dritte (16/10/2026, allargata a 22rem il 17/10 per il player Spotify, testo a 44rem): il testo si allinea a sinistra col titolo e a destra ci sono
    autore, Scrivimi e playlist. Da 64em in su la colonna resta ferma mentre si scorre; sotto scende in fondo. */
 .post-griglia{display:grid;grid-template-columns:minmax(0,1fr);gap:2.5rem}
 .post-principale{min-width:0}
 .colonna-dritte{display:flex;flex-direction:column;gap:1rem;font-size:.92rem;max-width:30rem}
 @media (min-width:64em){
-  .post-griglia{grid-template-columns:minmax(0,46rem) 18rem;justify-content:space-between;align-items:start;gap:3rem}
+  .post-griglia{grid-template-columns:minmax(0,44rem) 22rem;justify-content:space-between;align-items:start;gap:3rem}
   .colonna-dritte{position:sticky;top:7.5rem;max-height:calc(100vh - 9rem);overflow-y:auto;scrollbar-width:thin}
 }
 .colonna-indice{display:none}
