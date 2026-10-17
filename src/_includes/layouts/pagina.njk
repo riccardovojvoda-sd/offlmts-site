@@ -4,7 +4,19 @@ layout: layouts/base.njk
 <section class="intestazione">
   <div class="contenitore">
     {%- if occhiello %}<p class="occhiello">{{ occhiello }}</p>{% endif %}
+    {%- if autore %}
+    {#- Elenco delle dritte (17/10/2026, richiesta di Riccardo): l'autore a destra del titolo, stesso blocco della colonna
+        delle singole dritte; su schermi stretti va sotto il titolo. -#}
+    <div class="intestazione-titolo">
+      <h1>{{ titolo }}</h1>
+      <a class="colonna-autore" href="/chi-sono/">
+        <img class="colonna-autore-foto" src="/assets/img/trich/trich-viso.jpg" alt="" width="96" height="96" decoding="async">
+        <span><small>{{ "Written by" if lingua == "en" else "Scritte da" }}</small> <strong>{{ sito.alias }}</strong> <small>{{ sito.titolare }}, {{ "engineer and producer at OFFLMTS" if lingua == "en" else "fonico e producer di OFFLMTS" }}</small></span>
+      </a>
+    </div>
+    {%- else %}
     <h1>{{ titolo }}</h1>
+    {%- endif %}
     {%- if sottotitolo %}<p class="sottotitolo">{{ sottotitolo | mdInline | safe }}</p>{% endif %}
   </div>
 </section>
