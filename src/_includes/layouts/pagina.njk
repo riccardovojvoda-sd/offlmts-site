@@ -11,7 +11,7 @@ layout: layouts/base.njk
       <h1>{{ titolo }}</h1>
       <a class="colonna-autore" href="/chi-sono/">
         <img class="colonna-autore-foto" src="/assets/img/trich/trich-viso.jpg" alt="" width="96" height="96" decoding="async">
-        <span><small>{{ "Written by" if lingua == "en" else "Scritte da" }}</small> <strong>{{ sito.alias }}</strong> <small>{{ sito.titolare }}, {{ "engineer and producer at OFFLMTS" if lingua == "en" else "fonico e producer di OFFLMTS" }}</small></span>
+        <span><small>{{ "The author" if lingua == "en" else "L’autore" }}</small> <strong>{{ sito.alias }}</strong> <small>{{ sito.titolare }}, {{ "engineer and producer at OFFLMTS" if lingua == "en" else "fonico e producer di OFFLMTS" }}</small></span>
       </a>
     </div>
     {%- else %}
