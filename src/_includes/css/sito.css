@@ -94,7 +94,6 @@ section{padding-block:clamp(2.5rem,6vw,4.5rem)}
 .eroe-testo{padding-block:clamp(2.5rem,8vw,5rem) clamp(2rem,5vw,3.5rem)}
 .eroe .occhiello{color:var(--oro-chiaro)}
 .eroe h1{max-width:14ch;color:#fff;font-size:clamp(2.1rem,6.5vw,4.2rem)}
-.eroe-garanzia{color:#fff;font-size:clamp(1.05rem,2vw,1.35rem);font-weight:600;margin:0 0 1.1rem}
 .eroe-generi{font-family:var(--mono);font-size:.78rem;letter-spacing:.18em;color:rgba(255,255,255,.85);margin:0}
 .eroe .bottoni{margin-top:1.4rem}
 /* Mobile: la foto della regia e' larga (2,2:1) e col ritaglio "cover" su uno schermo stretto restano solo i monitor.
@@ -368,7 +367,6 @@ html.chiaro .eroe .occhiello{color:#E0AF73}
   html.chiaro .eroe::after{background:linear-gradient(180deg,transparent 55%,var(--fondo) 100%)}
   html.chiaro .eroe h1{color:var(--testo)}
   html.chiaro .eroe .occhiello{color:var(--oro)}
-  html.chiaro .eroe-garanzia{color:var(--testo)}
   html.chiaro .eroe-generi{color:var(--muto)}
   html.chiaro .eroe .bottone.vuoto{color:var(--testo);border-color:rgba(28,24,20,.4)}
   html.chiaro .menu{background:rgba(245,239,228,.94);border-top-color:#D4964B;box-shadow:0 -.5rem 1.5rem rgba(28,24,20,.12)}
