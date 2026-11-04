@@ -379,3 +379,6 @@ html.chiaro .eroe .occhiello{color:#E0AF73}
 html.chiaro .interruttore-tema .icona-luna{display:block}
 /* Su mobile il sole/luna sta in testata, a destra del logo, e scorre via con lei: in basso resta solo il torna-in-alto */
 @media (max-width:48em){.interruttore-tema{position:absolute;bottom:auto;top:calc(.75rem + (41px - 2.75rem) / 2);right:var(--gutter)}}
+
+/* Riga sull'AI in fondo agli articoli (04/11/2026) */
+.nota-ai{margin-top:2.5rem;padding-top:1rem;border-top:1px solid currentColor;border-top-color:color-mix(in srgb,currentColor 20%,transparent);font-size:.85rem;font-style:italic;color:var(--muto)}

@@ -25,6 +25,8 @@ og_type: article
   {%- endif %}
   <div class="post-corpo">
     {{ content | conAncore | safe }}
+    {#- Firma decisa il 04/11/2026 con Riccardo: le parole sono dell'AI, esperienza e approvazione di Trich. -#}
+    <p class="nota-ai">{{ "Written by AI based on Trich’s experience, then reviewed and approved by him." if lingua == "en" else "Testo scritto dall’AI sulla base dell’esperienza di Trich, che lo ha rivisto e approvato." }}</p>
   </div>
   {%- if tags.length > 1 %}
   <div class="post-tag">
