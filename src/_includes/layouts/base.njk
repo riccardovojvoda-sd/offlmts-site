@@ -41,21 +41,41 @@
 {% include "parti/analytics.njk" %}
 <script type="application/ld+json">{{ {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": sito.url + "/#offlmts",
-  "name": sito.nome,
-  "alternateName": ["OFFLMTS", "OFFLMTS Studio", "OFFLMTS Recording Studio Pordenone"],
-  "description": sito.descrizione,
-  "url": sito.url,
-  "image": sito.url + "/icon-512.png",
-  "logo": sito.url + "/icon-512.png",
-  "email": sito.email,
-  "telephone": "+" + sito.whatsapp,
-  "address": { "@type": "PostalAddress", "streetAddress": sito.indirizzo.via, "postalCode": sito.indirizzo.cap, "addressLocality": sito.indirizzo.comune, "addressRegion": sito.indirizzo.provincia, "addressCountry": "IT" },
-  "areaServed": ["Pordenone", "Friuli Venezia Giulia", "Italia"],
-  "founder": { "@type": "Person", "name": sito.titolare, "alternateName": sito.alias, "jobTitle": "Mixing engineer, vocal producer", "sameAs": [sito.social.instagram, sito.social.youtube, sito.social.sounddesignrv] },
-  "knowsAbout": ["mix", "mastering", "registrazione vocale", "vocal production", "hip hop", "trap", "urban", "pop", "EDM", "tuning", "editing vocale", "remaster", "rebalance"],
-  "sameAs": [sito.social.instagram, sito.social.youtube, sito.social.spotify]
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+        "@id": sito.url + "/#offlmts",
+        "name": sito.nome,
+        "alternateName": ["OFFLMTS", "OFFLMTS Studio", "OFFLMTS Recording Studio Pordenone"],
+        "description": sito.descrizione,
+        "url": sito.url,
+        "image": sito.url + "/icon-512.png",
+        "logo": sito.url + "/icon-512.png",
+        "email": sito.email,
+        "telephone": "+" + sito.whatsapp,
+        "address": { "@type": "PostalAddress", "streetAddress": sito.indirizzo.via, "postalCode": sito.indirizzo.cap, "addressLocality": sito.indirizzo.comune, "addressRegion": sito.indirizzo.provincia, "addressCountry": "IT" },
+        "areaServed": ["Pordenone", "Friuli Venezia Giulia", "Italia"],
+        "founder": { "@id": sito.url + "/#persona-trich" },
+        "knowsAbout": ["mix", "mastering", "registrazione vocale", "vocal production", "hip hop", "trap", "urban", "pop", "EDM", "tuning", "editing vocale", "remaster", "rebalance"],
+        "sameAs": [sito.social.instagram, sito.social.youtube, sito.social.spotify]
+    },
+    {
+      "@type": "Person",
+      "@id": sito.url + "/#persona-trich",
+      "name": sito.titolare,
+      "alternateName": sito.alias,
+      "jobTitle": "Mixing engineer, vocal producer",
+      "url": sito.url + "/chi-sono/",
+      "worksFor": { "@id": sito.url + "/#offlmts" },
+      "knowsLanguage": ["it", "en", "fr"],
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Conservatorio di Trieste" },
+        { "@type": "CollegeOrUniversity", "name": "SAE Institute Milano" }
+      ],
+      "knowsAbout": ["mix", "mastering", "registrazione vocale", "vocal production", "hip hop", "trap", "urban", "pop", "EDM", "tuning", "editing vocale"],
+      "sameAs": [sito.social.instagram, sito.social.youtube, sito.social.sounddesignrv, "https://www.sounddesignrv.com/chi-sono/"]
+    }
+  ]
 } | json | safe }}</script>
 </head>
 <body class="{{ classeBody or '' }}">

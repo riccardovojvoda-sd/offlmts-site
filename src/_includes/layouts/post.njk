@@ -62,7 +62,10 @@ og_type: article
   "dateModified": (aggiornato | dataIso) if aggiornato else (page.date | dataIso),
   "inLanguage": lingua or "it",
   "image": (sito.url + "/assets/img/dritte/" + copertina) if copertina else undefined,
-  "author": { "@type": "Person", "name": sito.titolare, "alternateName": sito.alias },
+  "author": { "@type": "Person", "@id": sito.url + "/#persona-trich", "name": sito.titolare, "alternateName": sito.alias, "url": sito.url + "/chi-sono/" },
   "publisher": { "@type": "Organization", "name": sito.nome, "logo": { "@type": "ImageObject", "url": sito.url + "/icon-512.png" } },
   "mainEntityOfPage": sito.url + page.url
 } | json | safe }}</script>
+{%- if domande_faq and domande_faq.length and not bozza %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":{{ (lingua or "it") | json | safe }},"mainEntity":[{% for f in domande_faq %}{"@type":"Question","name":{{ f.d | json | safe }},"acceptedAnswer":{"@type":"Answer","text":{{ f.r | json | safe }}}}{% if not loop.last %},{% endif %}{% endfor %}]}</script>
+{%- endif %}

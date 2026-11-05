@@ -1,4 +1,17 @@
 User-agent: *
 Allow: /
 
+# Crawler di assistenti e motori di risposta AI: contenuti pubblici, indicizzazione benvenuta
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+Allow: /
+
 Sitemap: https://www.offlmts.com/sitemap.xml

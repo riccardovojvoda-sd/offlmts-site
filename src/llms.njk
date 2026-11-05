@@ -15,6 +15,17 @@ eleventyExcludeFromCollections: true
 - [Chi sono]({{ sito.url }}/chi-sono/): Trich, mixing engineer e vocal producer dal 2014 con OFFLMTS.
 - [Contatti]({{ sito.url }}/contatti/): WhatsApp, Telegram @{{ sito.telegram }}, {{ sito.email }}. {{ sito.indirizzo.via }}, {{ sito.indirizzo.cap }} {{ sito.indirizzo.comune }} (PN).
 
+## Dritte
+Risposte pratiche per chi produce e pubblica da solo, una domanda precisa per pagina. Testo integrale in [llms-full.txt]({{ sito.url }}/llms-full.txt).
+{%- for a in collections.dritte %}
+- [{{ a.data.titolo | safe }}]({{ sito.url }}{{ a.url }}): {{ a.data.descrizione | safe }}
+{%- endfor %}
+
+## Tips (English)
+{%- for a in collections.tips %}
+- [{{ a.data.titolo | safe }}]({{ sito.url }}{{ a.url }}): {{ a.data.descrizione | safe }}
+{%- endfor %}
+
 ## Profili
 
 - Instagram: {{ sito.social.instagram }}
