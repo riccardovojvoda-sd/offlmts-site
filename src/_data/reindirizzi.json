@@ -86,5 +86,13 @@
   {
     "da": "/beat-comprato/",
     "a": "/dritte/modificare-un-beat-comprato/?utm_source=instagram-facebook&utm_medium=social&utm_campaign=dritta-beat-comprato"
+  },
+  {
+    "da": "/autotune/",
+    "a": "/dritte/autotune-melodyne-intonazione-voce/?utm_source=instagram-facebook&utm_medium=social&utm_campaign=dritta-autotune"
+  },
+  {
+    "da": "/voce-beat/",
+    "a": "/dritte/la-voce-non-si-sente-sopra-il-beat/?utm_source=instagram-facebook&utm_medium=social&utm_campaign=dritta-voce-beat"
   }
 ]
