@@ -29,6 +29,7 @@ classeBody: ascolto-basi
 .base-scarica{grid-area:scarica;display:inline-flex;align-items:center;gap:.5em;font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--testo);text-decoration:none;padding:.6em 1em;border:1px solid rgba(239,232,218,.45);border-radius:3px;transition:background .15s,border-color .15s,color .15s}
 .base-scarica:hover{background:var(--oro);border-color:var(--oro);color:var(--oro-testo)}
 .base-scarica svg{width:1rem;height:1rem}
+.basi-contatto{margin:2rem 0 0;font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;color:var(--muto)}
 @media (max-width:40em){
   .base{grid-template-columns:auto 1fr;grid-template-areas:"play titolo" "play scarica" "barra barra";justify-items:start}
   .base-titolo{width:100%}
@@ -38,7 +39,7 @@ classeBody: ascolto-basi
 
 <section class="ascolto-basi">
   <div class="contenitore">
-    <p class="basi-versione">Versione 2 · aggiornata il 9 novembre 2026 alle 11:20</p>
+    <p class="basi-versione">Versione 3 · aggiornata il 9 novembre 2026 alle 14:20</p>
     <ol class="basi-elenco" id="basi-elenco">
       {%- for b in basiGiovas %}
       <li class="base" data-titolo="{{ b.titolo }}">
@@ -53,6 +54,7 @@ classeBody: ascolto-basi
       </li>
       {%- endfor %}
     </ol>
+    <p class="basi-contatto">Per scrivermi: <a href="mailto:trich@offlmts.com">trich@offlmts.com</a></p>
   </div>
 </section>
 <script src="/assets/js/ascolto-basi.js" defer></script>
