@@ -1,10 +1,8 @@
 ---
 layout: layouts/pagina.njk
 permalink: /ascolto/g7k2m9x4qa/basi-per-giovas/
-titolo: Basi per Giovas
-occhiello: Ascolto riservato
-sottotitolo: "16 basi prodotte in studio da OFFLMTS. Ascoltale in ordine o salta dove vuoi, poi dai da 1 a 3 stelle a quelle che ti piacciono e premi Invia: mi arriva una mail già compilata."
-descrizione: Ascolto riservato delle basi OFFLMTS scelte per Giovas.
+titolo: BEATS OFFLMTS
+descrizione: Ascolto riservato dei beat OFFLMTS.
 noindex: true
 escludiDaSitemap: true
 eleventyExcludeFromCollections: true
@@ -15,7 +13,7 @@ classeBody: ascolto-basi
 .ascolto-basi{padding-block:1.5rem 3rem}
 .basi-versione{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muto);margin:0 0 1.5rem}
 .basi-elenco{list-style:none;margin:0;padding:0;border-top:1px solid var(--linea)}
-.base{display:grid;grid-template-columns:auto 1fr auto;grid-template-areas:"play titolo stelle" "play barra barra";align-items:center;gap:.35rem 1rem;padding:1rem .25rem;border-bottom:1px solid var(--linea);margin:0;transition:background .15s}
+.base{display:grid;grid-template-columns:auto 1fr auto;grid-template-areas:"play titolo scarica" "play barra barra";align-items:center;gap:.35rem 1rem;padding:1rem .25rem;border-bottom:1px solid var(--linea);margin:0;transition:background .15s}
 .base.attiva{background:var(--sup)}
 .base-num{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--oro);margin-right:.7em}
 .base-play{grid-area:play;width:3rem;height:3rem;border-radius:50%;border:1px solid var(--oro);background:transparent;color:var(--oro);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s,color .15s}
@@ -25,61 +23,36 @@ classeBody: ascolto-basi
 .base.suona .base-play .ic-play{display:none}
 .base.suona .base-play .ic-pausa{display:block}
 .base-titolo{grid-area:titolo;font-family:var(--mono);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:1.05rem;margin:0;display:flex;align-items:baseline;flex-wrap:wrap}
-.base-tempo{font-family:var(--mono);font-size:.74rem;color:var(--muto);margin-left:auto;padding-left:1rem;font-variant-numeric:tabular-nums}
-.base-barra{grid-area:barra;display:flex;align-items:center;gap:.8rem}
+.base-tempo{font-family:var(--mono);font-size:.74rem;color:var(--muto);margin-left:auto;padding-left:1rem;font-variant-numeric:tabular-nums;font-weight:400}
+.base-barra{grid-area:barra;display:flex;align-items:center}
 .base-barra input{width:100%;accent-color:var(--oro);height:1.4rem;cursor:pointer;margin:0}
-.base-stelle{grid-area:stelle;display:flex;gap:.1rem}
-.stella{background:none;border:0;padding:.25rem;cursor:pointer;color:var(--muto);opacity:.45;line-height:0}
-.stella.on{opacity:1}
-.stella svg{width:1.6rem;height:1.6rem;fill:currentColor}
-.stella:hover,.stella.on{color:var(--oro)}
-.stella:focus-visible{outline:2px solid var(--oro-chiaro);outline-offset:2px;border-radius:3px}
-.basi-invio{margin-top:2rem;display:grid;gap:1rem;max-width:46rem}
-.basi-invio label{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--oro)}
-.basi-invio textarea{width:100%;min-height:6rem;padding:.8rem 1rem;background:var(--sup);color:var(--testo);border:1px solid var(--linea);border-radius:3px;font:inherit;resize:vertical}
-.basi-invio textarea:focus{outline:2px solid var(--oro-chiaro);outline-offset:2px}
-.basi-stato{font-size:.95rem;color:var(--muto);margin:0}
-.basi-nota{font-size:.9rem;color:var(--muto);max-width:46rem;margin-top:1.5rem}
+.base-scarica{grid-area:scarica;display:inline-flex;align-items:center;gap:.5em;font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--testo);text-decoration:none;padding:.6em 1em;border:1px solid rgba(239,232,218,.45);border-radius:3px;transition:background .15s,border-color .15s,color .15s}
+.base-scarica:hover{background:var(--oro);border-color:var(--oro);color:var(--oro-testo)}
+.base-scarica svg{width:1rem;height:1rem}
 @media (max-width:40em){
-  .base{grid-template-columns:auto 1fr;grid-template-areas:"play titolo" "play stelle" "barra barra"}
-  .base-stelle{margin-left:-.25rem}
-  .base-barra{padding-top:.2rem}
+  .base{grid-template-columns:auto 1fr;grid-template-areas:"play titolo" "play scarica" "barra barra";justify-items:start}
+  .base-titolo{width:100%}
+  .base-barra{width:100%;padding-top:.2rem}
 }
 </style>
 
 <section class="ascolto-basi">
   <div class="contenitore">
-    <p class="basi-versione">Versione 1 · aggiornata il 9 novembre 2026 alle 10:55</p>
+    <p class="basi-versione">Versione 2 · aggiornata il 9 novembre 2026 alle 11:20</p>
     <ol class="basi-elenco" id="basi-elenco">
       {%- for b in basiGiovas %}
-      <li class="base" data-titolo="{{ b.titolo }}" data-durata="{{ b.durata }}">
+      <li class="base" data-titolo="{{ b.titolo }}">
         <button type="button" class="base-play" aria-label="Ascolta {{ b.titolo }}">
           <svg class="ic-play" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
           <svg class="ic-pausa" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>
         </button>
         <h2 class="base-titolo"><span class="base-num">{{ loop.index if loop.index > 9 else "0" + loop.index }}</span>{{ b.titolo }}<span class="base-tempo"><span class="t-ora">0:00</span> / {{ (b.durata // 60) }}:{{ "0" + (b.durata % 60) if (b.durata % 60) < 10 else (b.durata % 60) }}</span></h2>
         <div class="base-barra"><input type="range" min="0" max="{{ b.durata }}" value="0" step="1" aria-label="Posizione di {{ b.titolo }}"></div>
-        <div class="base-stelle" role="group" aria-label="Voto a {{ b.titolo }}">
-          {%- for n in [1, 2, 3] %}
-          <button type="button" class="stella" data-v="{{ n }}" aria-pressed="false" aria-label="{{ n }} {{ 'stella' if n == 1 else 'stelle' }}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.8l2.8 5.9 6.4.9-4.7 4.5 1.2 6.4L12 17.4 6.3 20.5l1.2-6.4L2.8 9.6l6.4-.9z"/></svg></button>
-          {%- endfor %}
-        </div>
+        <a class="base-scarica" href="https://github.com/riccardovojvoda-sd/offlmts-site/releases/download/basi-giovas-g7k2m9x4qa/{{ b.file }}" download="{{ b.file }}" target="_self" aria-label="Scarica {{ b.titolo }}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Scarica</a>
         <audio preload="none" src="/file/ascolto/g7k2m9x4qa/{{ b.file }}"></audio>
       </li>
       {%- endfor %}
     </ol>
-
-    <div class="basi-invio">
-      <label for="basi-nota">Un commento per me (facoltativo)</label>
-      <textarea id="basi-nota" placeholder="Per esempio: quale ti ha dato un'idea, che cosa ci immagini sopra"></textarea>
-      <div class="bottoni">
-        <button type="button" class="bottone" id="basi-invia">Invia le mie stelle</button>
-        <button type="button" class="bottone vuoto" id="basi-copia">Copia il riepilogo</button>
-      </div>
-      <p class="basi-stato" id="basi-stato" aria-live="polite"></p>
-    </div>
-    <p class="basi-nota">Le basi sono inedite e per tuo uso privato: questa pagina non compare nei motori di ricerca. Se la mail non si apre, copia il riepilogo e incollalo in una mail a <a href="mailto:{{ sito.email }}">{{ sito.email }}</a>.</p>
   </div>
 </section>
-<script>window.BASI_MAIL = {{ { mail: sito.email, oggetto: "Basi per Giovas: le mie stelle" } | json | safe }};</script>
 <script src="/assets/js/ascolto-basi.js" defer></script>
