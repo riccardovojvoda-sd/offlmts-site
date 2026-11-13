@@ -1,22 +1,79 @@
-# Legge i post di un profilo Instagram dal Brave di Riccardo (loggato), via AppleScript + JavaScript.
-# Apre un tab, scorre la griglia, raccoglie link + miniatura + didascalia, poi chiude il tab e
-# rimette attivo il tab di prima. Uso: python3 ig_leggi.py <profilo> <max_post> <out.json>
-import subprocess,json,sys,time
-profilo,maxn,out=sys.argv[1],int(sys.argv[2]),sys.argv[3]
-def osa(s):
-    r=subprocess.run(['osascript','-e',s],capture_output=True,text=True); 
-    if r.returncode: raise SystemExit(r.stderr)
-    return r.stdout.strip()
-def js(code):
-    code=code.replace('\\','\\\\').replace('"','\\"')
-    return osa(f'tell application "Brave Browser" to execute tab id {TAB} of window id {WIN} javascript "{code}"')
-# finestra e tab per id (non per indice: se Riccardo cambia tab o finestra nel frattempo, l'indice salta)
-WIN=osa('tell application "Brave Browser" to get id of front window')
-prev=osa(f'tell application "Brave Browser" to get active tab index of window id {WIN}')
-TAB=osa(f'tell application "Brave Browser" to tell window id {WIN} to get id of (make new tab with properties {{URL:"https://www.instagram.com/{profilo}/"}})')
-osa(f'tell application "Brave Browser" to set active tab index of window id {WIN} to {prev}')
+# Legge i post di un profilo Instagram dal Brave OFFLMTS (profilo dedicato, loggato), via CDP (porta 9223).
+# Apre una scheda IN SECONDO PIANO (Target.createTarget background), scorre la griglia, raccoglie
+# link + miniatura + didascalia, poi chiude la scheda. Non tocca il Brave di Riccardo e non porta
+# nulla in primo piano. Se il Brave OFFLMTS e' spento lo accende (lancia-brave.sh) e lo lascia acceso.
+# Uso: python3 instagram-leggi-post.py <profilo> <max_post> <out.json>
+import json, os, subprocess, sys, time, urllib.request
+
+VENV = os.path.expanduser("~/Library/CloudStorage/Dropbox/Code/tool-personali/MyScraper/.venv/bin/python")
+try:
+    import websocket
+except ImportError:
+    if sys.executable != VENV and os.path.exists(VENV):
+        os.execv(VENV, [VENV] + sys.argv)
+    raise
+
+profilo, maxn, out = sys.argv[1], int(sys.argv[2]), sys.argv[3]
+PORT = 9223
+LANCIA = os.path.expanduser("~/Library/CloudStorage/Dropbox/Code/tool-personali/offlmts-social/lancia-brave.sh")
+
+
+def versione():
+    try:
+        with urllib.request.urlopen(f"http://localhost:{PORT}/json/version", timeout=3) as r:
+            return json.load(r)
+    except Exception:
+        return None
+
+
+v = versione()
+if not v:
+    subprocess.run(["bash", LANCIA, "about:blank"], check=True)
+    for _ in range(40):
+        time.sleep(1)
+        v = versione()
+        if v:
+            break
+    else:
+        raise SystemExit("Brave OFFLMTS non si apre")
+
+
+class Cdp:
+    def __init__(self, url):
+        self.ws = websocket.create_connection(url, suppress_origin=True, timeout=60)
+        self.i = 0
+
+    def send(self, m, **p):
+        self.i += 1
+        self.ws.send(json.dumps({"id": self.i, "method": m, "params": p}))
+        while True:
+            r = json.loads(self.ws.recv())
+            if r.get("id") == self.i:
+                if "error" in r:
+                    raise SystemExit(f"{m}: {r['error']}")
+                return r.get("result", {})
+
+    def js(self, expr):
+        r = self.send("Runtime.evaluate", expression=expr, awaitPromise=True, returnByValue=True)
+        if "exceptionDetails" in r:
+            raise SystemExit(r["exceptionDetails"].get("exception", {}).get("description", "errore JS"))
+        return r.get("result", {}).get("value")
+
+
+browser = Cdp(v["webSocketDebuggerUrl"])
+TARGET = browser.send("Target.createTarget", url=f"https://www.instagram.com/{profilo}/", background=True)["targetId"]
+pagina = Cdp(f"ws://localhost:{PORT}/devtools/page/{TARGET}")
+pagina.send("Runtime.enable")
+# la scheda e' in secondo piano: senza questo Instagram la tratta come nascosta e non carica la griglia
+pagina.send("Emulation.setFocusEmulationEnabled", enabled=True)
 time.sleep(6)
-JS=r'''
+
+
+def js(code):
+    return pagina.js(code)
+
+
+JS = r'''
 (function(){
   window.__ig={stato:'in corso',post:[]};
   var visti={};
@@ -35,15 +92,17 @@ JS=r'''
     if(window.__ig.post.length>=MAXN||giri>18){clearInterval(t);window.__ig.stato='fatto';window.scrollTo(0,0);return;}
     window.scrollBy(0,window.innerHeight*2);
   },1500);
-})();'''.replace('MAXN',str(maxn))
-js(JS)
-for i in range(40):
-    time.sleep(2)
-    if js('window.__ig?window.__ig.stato:"?"')=='fatto': break
-n=int(js('window.__ig.post.length'))
-print('post trovati',n)
-# miniature in base64, dentro la pagina (stessa sessione)
-JS2=r'''
+})();'''.replace('MAXN', str(maxn))
+try:
+    js(JS)
+    for i in range(40):
+        time.sleep(2)
+        if js('window.__ig?window.__ig.stato:"?"') == 'fatto':
+            break
+    n = int(js('window.__ig.post.length'))
+    print('post trovati', n)
+    # miniature in base64, dentro la pagina (stessa sessione)
+    JS2 = r'''
 (async function(){
   window.__ig.stato='miniature';
   for (var p of window.__ig.post){
@@ -52,12 +111,16 @@ JS2=r'''
   }
   window.__ig.stato='fatto2';
 })();'''
-js(JS2)
-for i in range(60):
-    time.sleep(2)
-    if js('window.__ig.stato')=='fatto2': break
-dati=json.loads(js('JSON.stringify(window.__ig.post)'))
-open(out,'w').write(json.dumps(dati,ensure_ascii=False))
-osa(f'tell application "Brave Browser" to close tab id {TAB} of window id {WIN}')
-osa(f'tell application "Brave Browser" to set active tab index of front window to {prev}')
-print('salvato',out,'con',len(dati),'post;',sum(1 for d in dati if d.get('b64')),'miniature')
+    pagina.send("Runtime.evaluate", expression=JS2)
+    for i in range(60):
+        time.sleep(2)
+        if js('window.__ig.stato') == 'fatto2':
+            break
+    dati = json.loads(js('JSON.stringify(window.__ig.post)'))
+    open(out, 'w').write(json.dumps(dati, ensure_ascii=False))
+    print('salvato', out, 'con', len(dati), 'post;', sum(1 for d in dati if d.get('b64')), 'miniature')
+finally:
+    try:
+        browser.send("Target.closeTarget", targetId=TARGET)
+    except BaseException:
+        pass
