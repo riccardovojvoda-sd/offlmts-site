@@ -384,3 +384,28 @@ html.chiaro .interruttore-tema .icona-luna{display:block}
 
 /* Riga sull'AI in fondo agli articoli (04/11/2026) */
 .nota-ai{margin-top:2.5rem;padding-top:1rem;border-top:1px solid currentColor;border-top-color:color-mix(in srgb,currentColor 20%,transparent);font-size:.85rem;font-style:italic;color:var(--muto)}
+/* Movimento (prova 14/11/2026): solo spostamento e trasparenza, niente sfumature.
+   1) All'apertura: la foto in alto si stringe piano, titolo, generi, testo e bottoni salgono in sequenza.
+   2) Mentre si scorre: titoli e blocchi entrano dal basso, i figli uno dopo l'altro (movimento.js).
+   3) Al passaggio del mouse: carte e dritte si sollevano con il bordo oro, copertine e foto si ingrandiscono appena, bottoni e canali salgono di un filo. */
+@keyframes off-sale{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes off-foto{from{transform:none}to{transform:scale(1.07)}}
+/* la foto avanza piano verso chi guarda; ritagliata nel suo spazio, così sul telefono il bordo ingrandito non passa sopra il titolo */
+.eroe picture{overflow:hidden}
+.js-movimento .eroe picture img{animation:off-foto 7s cubic-bezier(.3,.5,.3,1) both}
+.js-movimento .eroe-testo>*{animation:off-sale .9s cubic-bezier(.2,.7,.2,1) both}
+.js-movimento .eroe-testo>:nth-child(2){animation-delay:.12s}
+.js-movimento .eroe-testo>:nth-child(3){animation-delay:.24s}
+.js-movimento .eroe-testo>:nth-child(4){animation-delay:.36s}
+.js-movimento .eroe-testo>:nth-child(n+5){animation-delay:.48s}
+:where(.js-movimento) :where(main section:not(.eroe) .contenitore>h2,main section:not(.eroe) .contenitore>h2+p,.servizi-griglia>*,.dritte-lista>*,.ig-strip>*,.canali>*,.chi-breve>*,.ascolta-griglia>*,.contatto-griglia>*){opacity:0;transform:translateY(24px)}
+:where(.js-movimento) :where(.contenitore>h2.visibile,.contenitore>p.visibile,.visibile>*){opacity:1;transform:none;transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.carta,.dritta-link{transition:transform .45s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .45s}
+.carta:hover,.dritta-link:hover{transform:translateY(-5px);border-color:var(--oro);box-shadow:0 1.2rem 2rem -1.4rem rgba(212,150,75,.55)}
+.dritta-cop img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.dritta-link:hover .dritta-cop img{transform:scale(1.05)}
+.ig-strip img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.ig-strip a:hover img{transform:scale(1.07)}
+.bottone,.canale,.menu-cta{transition:transform .3s cubic-bezier(.2,.7,.2,1),background-color .25s,color .25s,border-color .25s}
+.bottone:hover,.canale:hover,.menu-cta:hover{transform:translateY(-2px)}
+@media (prefers-reduced-motion:reduce){.carta:hover,.dritta-link:hover,.bottone:hover,.canale:hover,.menu-cta:hover,.dritta-link:hover .dritta-cop img,.ig-strip a:hover img{transform:none}}

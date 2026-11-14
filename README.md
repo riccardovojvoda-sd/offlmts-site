@@ -43,3 +43,7 @@ Il player Spotify si carica solo al clic (niente cookie di terze parti prima).
 - Italiano in `src/dritte/<slug>.html` (URL `/dritte/<slug>/`, elenco `/dritte/`), inglese in `src/en/tips/<slug>.html` (URL `/en/tips/<slug>/`, elenco `/en/tips/`).
 - Le due versioni si legano con `coppia: <url dell'altra>` nel front matter di entrambe: il layout mette i tag `hreflang` (it, en, x-default sull'italiano), il link "English version" / "Versione italiana" e `lang` giusto sull'html.
 - Prima il testo italiano approvato da Riccardo, poi la traduzione. Il menu e il pie' restano in italiano anche sulle pagine inglesi.
+
+## Movimento (dal 14/11/2026)
+
+Entrata dei blocchi allo scorrimento (`src/assets/js/movimento.js`, classe `js-movimento` messa da uno script in testa a `base.njk`) e reazioni al passaggio del mouse: regole nel blocco "Movimento" in fondo a `src/_includes/css/sito.css`. Solo spostamento e trasparenza, niente sfumature; chi chiede meno animazioni al sistema vede la pagina ferma. Soglia di entrata 0: un elenco più alto di molti schermi (le Dritte sul telefono) non arriverebbe mai a una quota visibile. Blocchi nuovi da far entrare: aggiungerli a `blocchi` in movimento.js e allo stesso elenco nel CSS.
