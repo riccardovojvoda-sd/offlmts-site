@@ -26,5 +26,7 @@ for f in os.listdir(IMG):
 print('post nuovi:',*aggiunti)
 if '--push' in sys.argv:
     subprocess.run(['git','-C',R,'add','src/_data/instagram.json','src/assets/img/instagram'],check=True)
-    subprocess.run(['git','-C',R,'commit','-q','-m',f'Instagram: {len(aggiunti)} post nuovi nella strip\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>'],check=True)
+    subprocess.run(['git','-C',R,'commit','-q','-m',f'Instagram: {len(aggiunti)} post nuovi nella strip\n\nCo-Authored-By: Claude Opus 5 <noreply@anthropic.com>',
+                    # solo i file della strip: se una sessione ha altro in stage alle 22:30 non finisce qui (review 14/11/2026)
+                    '--','src/_data/instagram.json','src/assets/img/instagram'],check=True)
     subprocess.run(['git','-C',R,'push','-q'],check=True); print('push fatto')
