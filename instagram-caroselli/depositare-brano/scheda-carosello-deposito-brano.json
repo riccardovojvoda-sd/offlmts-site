@@ -1,0 +1,42 @@
+{
+ "cartella": "depositare-brano",
+ "pref": "deposito-brano",
+ "nomecover": "Dritta_DepositoBrano",
+ "foto": "deposito-martelletto-studio-chiaro.jpg",
+ "titolo": "Dove depositare un brano",
+ "titolo_cta": "SIAE, Soundreef o niente",
+ "url": "offlmts.com/deposito-brano",
+ "slide": [
+  {
+   "titolo": "Il brano è già tuo",
+   "testo": "Il diritto d'autore nasce quando <strong>crei</strong> il pezzo, anche senza depositarlo.",
+   "muto": "Il deposito serve a incassare i diritti e ad avere una prova con data certa."
+  },
+  {
+   "titolo": "SIAE",
+   "testo": "Deposito musica dall'app SIAE+ o dal Portale Autori ed Editori, <strong>gratuito</strong> per gli iscritti.",
+   "muto": "Servono la dichiarazione firmata da tutti gli aventi diritto e il file audio."
+  },
+  {
+   "titolo": "Soundreef",
+   "testo": "Nessuna quota di iscrizione né abbonamento annuale. Lo streaming viene pagato <strong>ogni 90 giorni</strong>.",
+   "muto": "Per il deposito: MP3, ISRC se c'è, quote DEM e DRM che sommano 100%."
+  },
+  {
+   "titolo": "Una sola per tutto",
+   "testo": "Il mandato vale per tutto il repertorio: un pezzo in SIAE e uno in Soundreef <strong>non si può</strong>.",
+   "muto": "Per cambiare si revoca il mandato e si depositano di nuovo i brani."
+  },
+  {
+   "titolo": "Il distributore è un altro giro",
+   "testo": "DistroKid incassa i ricavi della registrazione, la collecting quelli <strong>d'autore</strong> su testo e musica.",
+   "muto": "Pubblicare con un distributore non iscrive a SIAE o Soundreef."
+  },
+  {
+   "titolo": "Coautori e sample",
+   "testo": "Le quote si mettono <strong>per iscritto</strong> prima del deposito. Un sample non liberato blocca il deposito.",
+   "muto": "Intestarsi il 100% di un brano scritto in due è dichiarare il falso."
+  }
+ ],
+ "css_extra": ".cA .sfondo{background-size:auto 900px;background-position:50% 0;-webkit-mask-image:none;mask-image:none}.cA .velo{background:linear-gradient(180deg,rgba(11,10,9,0) 0%,rgba(11,10,9,0) 30%,rgba(11,10,9,.25) 40%,rgba(11,10,9,.6) 50%,rgba(11,10,9,.88) 58%,#0b0a09 66%,#0b0a09 100%) !important}"
+}
